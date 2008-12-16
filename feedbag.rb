@@ -47,7 +47,7 @@ module Feedbag
 				# first with links
 				(doc/"link").each do |l|
 					next unless l["rel"]
-					if l["type"] and @content_types.include?(l["type"].downcase) and (l["rel"] == "alternate" or l["rel"] == "service.feed")
+					if l["type"] and @content_types.include?(l["type"].downcase.strip) and (l["rel"].downcase =~ /alternate/i or l["rel"] == "service.feed")
 						self.add_feed(l["href"], url)
 					end
 				end
