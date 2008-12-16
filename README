@@ -1,0 +1,31 @@
+Feedbag 
+--------------------------------------------------------
+Do you want me to drag my sack across your face?
+                                        - Glenn Quagmire
+
+Feedbag is a feed auto-discovery Ruby library.
+
+Synopsis
+--------
+ ~/axiombox/feedbag :master $ irb
+ >> require "feedbag"
+ => true
+ >> f = Feedbag.find "http://log.damog.net/"
+ => ["http://feeds.feedburner.com/TeoremaDelCerdoInfinito", "http://log.damog.net/comments/feed/"]
+ >> 
+
+Why you should use it?
+----------------------
+- Because it's cool.
+- Because it only uses Hpricot as dependency.
+- Because it follows modern feed filename conventions.
+- Because it's a single file.
+
+Why did you build it?
+---------------------
+- Because I liked Benjamin Trott's Feed::Finder.
+- Because I thought it would be good to have Feed::Finder's functionality
+  in Ruby.
+- Because I thought it was going to be easy to maintain.
+- Because I was going to use it on rFeed.
+
