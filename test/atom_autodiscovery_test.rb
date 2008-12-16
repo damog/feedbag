@@ -12,13 +12,16 @@ class AtomAutoDiscoveryTest < Test::Unit::TestCase
 		url = "html4-001.html"
 
 		i = 1
+		puts "trying now with #{url}"
 		while(i)
 			i = 0 # unless otherwise found
+
 			f = Feedbag.find base_url + url
 
 			assert_instance_of Array, f
 			assert f.size == 1, "Feedbag didn't find a feed on #{base_url + url} or found more than one"
-			puts "Fetching... #{f[0]}"
+
+			puts " found #{f[0]}"
 			feed = Hpricot(open(f[0]))
 	
 			(feed/"link").each do |l|
