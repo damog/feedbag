@@ -38,7 +38,7 @@ module Feedbag
 		$feeds = []
 		begin
 			html = open(url) do |f|
-				if @content_types.include?(f.content_type)
+				if @content_types.include?(f.content_type.downcase)
 					return self.add_feed(url)
 				end
 
@@ -47,8 +47,8 @@ module Feedbag
 				# first with links
 				(doc/"link").each do |l|
 					next unless l["rel"]
-					if @content_types.include?(l["type"]) and (l["rel"] == "alternate" or l["rel"] == "service.feed")
-						self.add_feed(l["href"])
+					if l["type"] and @content_types.include?(l["type"].downcase) and (l["rel"] == "alternate" or l["rel"] == "service.feed")
+						self.add_feed(l["href"], url)
 					end
 				end
 				
@@ -59,7 +59,7 @@ module Feedbag
 						a["href"] =~ /feed=(rss2|atom)/i or 
 						a["href"] =~ /(atom|feed)\/$/i)
 
-						self.add_feed(a["href"])
+						self.add_feed(a["href"], url)
 					end
 				end
 
@@ -71,8 +71,20 @@ module Feedbag
 		$feeds
 	end
 
-	def self.add_feed(feed_url)
-		$feeds.push(feed_url.sub(/^feed:/, ''))
+	def self.add_feed(feed_url, orig_url)
+		url = feed_url.sub(/^feed:/, '').strip
+
+		begin
+			uri = URI.parse(url)
+		rescue
+			puts "Error with `#{url}'"
+			exit 1
+		end
+		unless uri.absolute?
+			orig = URI.parse(orig_url)
+			url = orig.merge(url).to_s
+		end
+		$feeds.push(url)
 	end
 end
 
