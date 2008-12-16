@@ -32,9 +32,10 @@ module Feedbag
 		'application/rdf+xml',
 	]
 
-	@feeds = []
+	$feeds = []
 
 	def self.find(url)
+		$feeds = []
 		begin
 			html = open(url) do |f|
 				if @content_types.include?(f.content_type)
@@ -67,11 +68,11 @@ module Feedbag
 			puts "Error ocurred with `#{url}': #{the_error}"
 		end
 		
-		@feeds
+		$feeds
 	end
 
 	def self.add_feed(feed_url)
-		@feeds.push(feed_url.sub(/^feed:/, ''))
+		$feeds.push(feed_url.sub(/^feed:/, ''))
 	end
 end
 
