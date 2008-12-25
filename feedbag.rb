@@ -20,6 +20,7 @@
 require "rubygems"
 require "hpricot"
 require "open-uri"
+require "net/http"
 
 module Feedbag
 
@@ -32,23 +33,32 @@ module Feedbag
 		'application/rdf+xml',
 	]
 
+	@debug = 1
+
 	$feeds = []
+	$base_uri = nil
 
 	def self.find(url)
 		$feeds = []
 		begin
 			html = open(url) do |f|
 				if @content_types.include?(f.content_type.downcase)
-					return self.add_feed(url)
+					return self.add_feed(url, nil)
 				end
 
 				doc = Hpricot(f.read)
+
+				if doc.at("base") and doc.at("base")["href"]
+					$base_uri = doc.at("base")["href"]
+				else
+					$base_uri = nil
+				end
 
 				# first with links
 				(doc/"link").each do |l|
 					next unless l["rel"]
 					if l["type"] and @content_types.include?(l["type"].downcase.strip) and (l["rel"].downcase =~ /alternate/i or l["rel"] == "service.feed")
-						self.add_feed(l["href"], url)
+						self.add_feed(l["href"], url, $base_uri)
 					end
 				end
 				
@@ -59,7 +69,7 @@ module Feedbag
 						a["href"] =~ /feed=(rss2|atom)/i or 
 						a["href"] =~ /(atom|feed)\/$/i)
 
-						self.add_feed(a["href"], url)
+						self.add_feed(a["href"], url, $base_uri)
 					end
 				end
 
@@ -71,8 +81,16 @@ module Feedbag
 		$feeds
 	end
 
-	def self.add_feed(feed_url, orig_url)
+	def self.add_feed(feed_url, orig_url, base_uri = nil)
+		puts "#{feed_url} - #{orig_url}"
 		url = feed_url.sub(/^feed:/, '').strip
+
+		if base_uri
+			url = base_uri + feed_url
+			puts "base_uri: #{base_uri}" if @debug
+			puts "orig_url: #{orig_url}" if @debug
+			puts "feed_url: #{feed_url}" if @debug
+		end
 
 		begin
 			uri = URI.parse(url)
@@ -84,7 +102,21 @@ module Feedbag
 			orig = URI.parse(orig_url)
 			url = orig.merge(url).to_s
 		end
-		$feeds.push(url)
+
+		# verify url is really valid
+		$feeds.push(url) if self._is_http_valid(URI.parse(url), url)
+	end
+
+	def self._is_http_valid(uri, url)
+		req = Net::HTTP.get_response(uri)
+		case req
+			when Net::HTTPSuccess then
+				return true
+			else
+				guess_url = "#{uri.scheme}://#{uri.host}#{uri.path}"
+				return false if guess_url == url
+				return true if self._is_http_valid(URI.parse(guess_url), guess_url)
+		end
 	end
 end
 
