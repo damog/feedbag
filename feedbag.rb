@@ -40,6 +40,11 @@ module Feedbag
 
 	def self.find(url)
 		$feeds = []
+
+		url_uri = URI.parse(url)
+
+		url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
+
 		begin
 			html = open(url) do |f|
 				if @content_types.include?(f.content_type.downcase)
@@ -61,14 +66,17 @@ module Feedbag
 						self.add_feed(l["href"], url, $base_uri)
 					end
 				end
-				
+
 				(doc/"a").each do |a|
 					next unless a["href"]
-					if(
-						a["href"] =~ /\.(rdf|xml|rdf)$/i or 
-						a["href"] =~ /feed=(rss2|atom)/i or 
-						a["href"] =~ /(atom|feed)\/$/i)
+					if self.looks_like_feed?(a["href"]) and (a["href"] =~ /\// or a["href"] =~ /#{url_uri.host}/)
+						self.add_feed(a["href"], url, $base_uri)
+					end
+				end
 
+				(doc/"a").each do |a|
+					next unless a["href"]
+					if self.looks_like_feed?(a["href"])
 						self.add_feed(a["href"], url, $base_uri)
 					end
 				end
@@ -76,17 +84,28 @@ module Feedbag
 			end
 		rescue OpenURI::HTTPError => the_error
 			puts "Error ocurred with `#{url}': #{the_error}"
+		rescue SocketError => err
+			puts "Socket error ocurred with: `#{url}': #{err}"
 		end
 		
 		$feeds
 	end
 
+	def self.looks_like_feed?(url)
+		if url =~ /(\.(rdf|xml|rdf)$|feed=(rss|atom)|(atom|feed)\/$)/i
+			true
+		else
+			false
+		end
+	end
+
 	def self.add_feed(feed_url, orig_url, base_uri = nil)
-		puts "#{feed_url} - #{orig_url}"
+		# puts "#{feed_url} - #{orig_url}"
 		url = feed_url.sub(/^feed:/, '').strip
 
 		if base_uri
-			url = base_uri + feed_url
+			#	url = base_uri + feed_url
+			url = URI.parse(base_uri).merge(feed_url).to_s
 			puts "base_uri: #{base_uri}" if @debug
 			puts "orig_url: #{orig_url}" if @debug
 			puts "feed_url: #{feed_url}" if @debug
@@ -104,18 +123,17 @@ module Feedbag
 		end
 
 		# verify url is really valid
-		$feeds.push(url) if self._is_http_valid(URI.parse(url), url)
+		$feeds.push(url) unless $feeds.include?(url)# if self._is_http_valid(URI.parse(url), orig_url)
 	end
 
-	def self._is_http_valid(uri, url)
+	def self._is_http_valid(uri, orig_url)
 		req = Net::HTTP.get_response(uri)
+		orig_uri = URI.parse(orig_url)
 		case req
 			when Net::HTTPSuccess then
 				return true
 			else
-				guess_url = "#{uri.scheme}://#{uri.host}#{uri.path}"
-				return false if guess_url == url
-				return true if self._is_http_valid(URI.parse(guess_url), guess_url)
+				return false
 		end
 	end
 end
