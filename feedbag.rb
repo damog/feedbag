@@ -1,18 +1,21 @@
 #!/usr/bin/ruby
 
-#            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-#                    Version 2, December 2004
-# 
-# Copyright (C) 2008 David Moreno <david@axiombox.com>
-# 
-# Everyone is permitted to copy and distribute verbatim or modified
-# copies of this license document, and changing it is allowed as long
-# as the name is changed.
-# 
-#            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-#   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-# 
-#  0. You just DO WHAT THE FUCK YOU WANT TO.
+# Copyright  Axiombox (c) 2008
+#            David Moreno <david@axiombox.com> (c) 2008
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 # Originally wrote by David Moreno <david@axiombox.com>
 #  mainly based on Benjamin Trott's Feed::Find
@@ -33,8 +36,6 @@ module Feedbag
 		'application/rdf+xml',
 	]
 
-	@debug = 1
-
 	$feeds = []
 	$base_uri = nil
 
@@ -42,7 +43,6 @@ module Feedbag
 		$feeds = []
 
 		url_uri = URI.parse(url)
-
 		url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
 
 		begin
@@ -106,9 +106,6 @@ module Feedbag
 		if base_uri
 			#	url = base_uri + feed_url
 			url = URI.parse(base_uri).merge(feed_url).to_s
-			puts "base_uri: #{base_uri}" if @debug
-			puts "orig_url: #{orig_url}" if @debug
-			puts "feed_url: #{feed_url}" if @debug
 		end
 
 		begin
