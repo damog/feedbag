@@ -3,7 +3,9 @@ Feedbag
 > Do you want me to drag my sack across your face?
 >                                 - Glenn Quagmire
 
-Feedbag is a feed auto-discovery Ruby library. You don't need to know more about it.
+Feedbag is a feed auto-discovery Ruby library. You don't need to know more about it. It is said to be:
+
+> Ruby's favorite auto-discovery tool/library!
 
 ### Quick synopsis
 
@@ -17,6 +19,10 @@ Feedbag is a feed auto-discovery Ruby library. You don't need to know more about
 ### Installation
 
 	$ sudo gem install damog-feedbag -s http://gems.github.com/
+
+Or just grab feedbag.rb and use it on your own project:
+
+	$ wget http://github.com/damog/feedbag/raw/master/lib/feedbag.rb
 
 ## Tutorial
 
@@ -67,4 +73,22 @@ Feedbag will find them all, but it will return the most important ones on the fi
 - Because I thought it was going to be easy to maintain.
 - Because I was going to use it on rFeed.
 - And finally, because I didn't know rfeedfinder existed :-)
+
+### Contribute
+
+> git clone git://github.com/damog/feedbag.git
+
+...patch, build, hack and make pull requests. I'll be glad.
+
+### Author
+
+[David Moreno](http://damog.net/) <[david@axiombox.com](mailto:david@axiombox.com)>
+
+### Copyright
+
+This is free software. See (COPYING)[http://github.com/damog/feedbag/raw/master/COPYING] for more information.
+
+### Thanks
+
+[Raquel](http://maggit.net), for making [Axiombox](http://axiombox.com) and most of my dreams possible. Also, [GitHub](http://github.com) for making a nice sharing code service that doesn't suck.
 
