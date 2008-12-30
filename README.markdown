@@ -68,11 +68,15 @@ Feedbag will find them all, but it will return the most important ones on the fi
 
 ### Why did you build it?
 
-- Because I liked Benjamin Trott's Feed::Finder.
-- Because I thought it would be good to have Feed::Finder's functionality in Ruby.
+- Because I liked Benjamin Trott's [Feed::Find](http://search.cpan.org/~btrott/Feed-Find-0.06/lib/Feed/Find.pm).
+- Because I thought it would be good to have Feed::Find's functionality in Ruby.
 - Because I thought it was going to be easy to maintain.
-- Because I was going to use it on rFeed.
+- Because I was going to use it on [rFeed](http://github.com/damog/rfeed).
 - And finally, because I didn't know rfeedfinder existed :-)
+
+### Bugs
+
+Please, report bugs to [rt@support.axiombox.com](rt@support.axiombox.com) or directly to the author.
 
 ### Contribute
 
@@ -86,9 +90,9 @@ Feedbag will find them all, but it will return the most important ones on the fi
 
 ### Copyright
 
-This is free software. See (COPYING)[http://github.com/damog/feedbag/raw/master/COPYING] for more information.
+This is free software. See [COPYING](http://github.com/damog/feedbag/master/COPYING) for more information.
 
 ### Thanks
 
-[Raquel](http://maggit.net), for making [Axiombox](http://axiombox.com) and most of my dreams possible. Also, [GitHub](http://github.com) for making a nice sharing code service that doesn't suck.
+[Raquel](http://maggit.net), for making [Axiombox](http://axiombox.com) and most of my dreams possible. Also, [GitHub](http://github.com) for making a nice code sharing service that doesn't suck.
 
