@@ -61,18 +61,18 @@ Feedbag will find them all, but it will return the most important ones on the fi
 ### Why should you use it?
 
 - Because it's cool.
-- Because it only uses Hpricot as dependency.
+- Because it only uses [Hpricot](https://code.whytheluckystiff.net/hpricot/) as dependency.
 - Because it follows modern feed filename conventions (like those ones used by WordPress blogs, or Blogger, etc).
 - Because it's a single file you can embed easily in your application.
-- Because it passes most of the Mark Pilgrim's Atom auto-discovery test suite. It doesn't pass them all because some of those tests are	broken (citation needed).
+- Because it passes most of the Mark Pilgrim's [Atom auto-discovery test suite](http://diveintomark.org/tests/client/autodiscovery/). It doesn't pass them all because some of those tests are	broken (citation needed).
 
-### Why did you build it?
+### Why did I build it?
 
 - Because I liked Benjamin Trott's [Feed::Find](http://search.cpan.org/~btrott/Feed-Find-0.06/lib/Feed/Find.pm).
 - Because I thought it would be good to have Feed::Find's functionality in Ruby.
 - Because I thought it was going to be easy to maintain.
 - Because I was going to use it on [rFeed](http://github.com/damog/rfeed).
-- And finally, because I didn't know rfeedfinder existed :-)
+- And finally, because I didn't know [rfeedfinder](http://rfeedfinder.rubyforge.org/) existed :-)
 
 ### Bugs
 
@@ -86,7 +86,7 @@ Please, report bugs to [rt@support.axiombox.com](rt@support.axiombox.com) or dir
 
 ### Author
 
-[David Moreno](http://damog.net/) <[david@axiombox.com](mailto:david@axiombox.com)>
+[David Moreno](http://damog.net/) <[david@axiombox.com](mailto:david@axiombox.com)>.
 
 ### Copyright
 
