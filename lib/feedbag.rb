@@ -17,9 +17,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-# Originally wrote by David Moreno <david@axiombox.com>
-#  mainly based on Benjamin Trott's Feed::Find
-
 require "rubygems"
 require "hpricot"
 require "open-uri"
@@ -123,6 +120,7 @@ module Feedbag
 		$feeds.push(url) unless $feeds.include?(url)# if self._is_http_valid(URI.parse(url), orig_url)
 	end
 
+	# not used. yet.
 	def self._is_http_valid(uri, orig_url)
 		req = Net::HTTP.get_response(uri)
 		orig_uri = URI.parse(orig_url)
