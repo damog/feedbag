@@ -92,6 +92,8 @@ module Feedbag
 				end
 
 			end
+		rescue Timeout::Error => err
+			$stderr.puts "Timeout error ocurred with `#{url}: #{err}'"
 		rescue OpenURI::HTTPError => the_error
 			$stderr.puts "Error ocurred with `#{url}': #{the_error}"
 		rescue SocketError => err
