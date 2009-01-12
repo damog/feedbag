@@ -98,9 +98,12 @@ module Feedbag
 			$stderr.puts "Error ocurred with `#{url}': #{the_error}"
 		rescue SocketError => err
 			$stderr.puts "Socket error ocurred with: `#{url}': #{err}"
+		rescue => ex
+			$stderr.puts "#{ex.class} error ocurred with: `#{url}': #{ex.message}"
+		ensure
+			return $feeds
 		end
 		
-		$feeds
 	end
 
 	def self.looks_like_feed?(url)
