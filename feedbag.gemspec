@@ -2,7 +2,7 @@
  
 Gem::Specification.new do |s|
   s.name = %q{feedbag}
-  s.version = "0.5.2"
+  s.version = "0.5.3"
 	s.homepage = "http://axiombox.com/feedbag"
 	s.rubyforge_project = "feedbag"
  
