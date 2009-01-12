@@ -37,8 +37,6 @@ module Feedbag
 	$base_uri = nil
 
 	def self.feed?(url)
-		res = self.find(url)
-
 		# use LWR::Simple.normalize some time
 		url_uri = URI.parse(url)
 		url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
@@ -95,9 +93,9 @@ module Feedbag
 
 			end
 		rescue OpenURI::HTTPError => the_error
-			puts "Error ocurred with `#{url}': #{the_error}"
+			$stderr.puts "Error ocurred with `#{url}': #{the_error}"
 		rescue SocketError => err
-			puts "Socket error ocurred with: `#{url}': #{err}"
+			$stderr.puts "Socket error ocurred with: `#{url}': #{err}"
 		end
 		
 		$feeds
