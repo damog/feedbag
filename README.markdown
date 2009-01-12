@@ -15,6 +15,10 @@ Feedbag is a feed auto-discovery Ruby library. You don't need to know more about
  	=> true
  	>> Feedbag.find "log.damog.net"
  	=> ["http://feeds.feedburner.com/TeoremaDelCerdoInfinito", "http://log.damog.net/comments/feed/"]
+	>> Feedbag.feed?("google.com")
+	=> false
+	>> Feedbag.feed?("http://planet.debian.org/rss20.xml")
+	=> true
 
 ### Installation
 

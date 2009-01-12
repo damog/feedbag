@@ -1,0 +1,115 @@
+<h1>Feedbag</h1>
+
+<blockquote>
+  <p>Do you want me to drag my sack across your face?
+                                - Glenn Quagmire</p>
+</blockquote>
+
+<p>Feedbag is a feed auto-discovery Ruby library. You don't need to know more about it. It is said to be:</p>
+
+<blockquote>
+  <p>Ruby's favorite auto-discovery tool/library!</p>
+</blockquote>
+
+<h3>Quick synopsis</h3>
+
+<pre><code>&gt;&gt; require "rubygems"
+=&gt; true
+&gt;&gt; require "feedbag"
+=&gt; true
+&gt;&gt; Feedbag.find "log.damog.net"
+=&gt; ["http://feeds.feedburner.com/TeoremaDelCerdoInfinito", "http://log.damog.net/comments/feed/"]
+</code></pre>
+
+<h3>Installation</h3>
+
+<pre><code>$ sudo gem install damog-feedbag -s http://gems.github.com/
+</code></pre>
+
+<p>Or just grab feedbag.rb and use it on your own project:</p>
+
+<pre><code>$ wget http://github.com/damog/feedbag/raw/master/lib/feedbag.rb
+</code></pre>
+
+<h2>Tutorial</h2>
+
+<p>So you want to know more about it.</p>
+
+<p>OK, if the URL passed to the find method is a feed itself, that only feed URL will be returned.</p>
+
+<pre><code>&gt;&gt; Feedbag.find "github.com/damog.atom"
+=&gt; ["http://github.com/damog.atom"]
+&gt;&gt;
+</code></pre>
+
+<p>Otherwise, it will always return LINK feeds first, A (anchor tags) feeds later. Between A feeds, the ones hosted on the same URL's host, will have larger priority:</p>
+
+<pre><code>&gt;&gt; Feedbag.find "http://ve.planetalinux.org"
+=&gt; ["http://feedproxy.google.com/PlanetaLinuxVenezuela", "http://rendergraf.wordpress.com/feed/", "http://rootweiller.wordpress.com/feed/", "http://skatox.com/blog/feed/", "http://kodegeek.com/atom.xml", "http://blog.0x29.com.ve/?feed=rss2&amp;cat=8"]
+&gt;&gt;
+</code></pre>
+
+<p>On your application you should only take the very first element of the array, most of the times:</p>
+
+<pre><code>&gt;&gt; Feedbag.find("planet.debian.org").first(3)
+=&gt; ["http://planet.debian.org/rss10.xml", "http://planet.debian.org/rss20.xml", "http://planet.debian.org/atom.xml"]
+&gt;&gt;
+</code></pre>
+
+<p>(Try running that same example without the "first" method. That example's host is a blog aggregator, so it has hundreds of feed URLs:)</p>
+
+<pre><code>&gt;&gt; Feedbag.find("planet.debian.org").size
+=&gt; 104
+&gt;&gt;
+</code></pre>
+
+<p>Feedbag will find them all, but it will return the most important ones on the first elements on the array returned.</p>
+
+<pre><code>&gt;&gt; Feedbag.find("cnn.com")
+=&gt; ["http://rss.cnn.com/rss/cnn_topstories.rss", "http://rss.cnn.com/rss/cnn_latest.rss", "http://rss.cnn.com/services/podcasting/robinmeade/rss.xml"]
+&gt;&gt;
+</code></pre>
+
+<h3>Why should you use it?</h3>
+
+<ul>
+<li>Because it's cool.</li>
+<li>Because it only uses <a href="https://code.whytheluckystiff.net/hpricot/">Hpricot</a> as dependency.</li>
+<li>Because it follows modern feed filename conventions (like those ones used by WordPress blogs, or Blogger, etc).</li>
+<li>Because it's a single file you can embed easily in your application.</li>
+<li>Because it passes most of the Mark Pilgrim's <a href="http://diveintomark.org/tests/client/autodiscovery/">Atom auto-discovery test suite</a>. It doesn't pass them all because some of those tests are  broken (citation needed).</li>
+</ul>
+
+<h3>Why did I build it?</h3>
+
+<ul>
+<li>Because I liked Benjamin Trott's <a href="http://search.cpan.org/~btrott/Feed-Find-0.06/lib/Feed/Find.pm">Feed::Find</a>.</li>
+<li>Because I thought it would be good to have Feed::Find's functionality in Ruby.</li>
+<li>Because I thought it was going to be easy to maintain.</li>
+<li>Because I was going to use it on <a href="http://github.com/damog/rfeed">rFeed</a>.</li>
+<li>And finally, because I didn't know <a href="http://rfeedfinder.rubyforge.org/">rfeedfinder</a> existed :-)</li>
+</ul>
+
+<h3>Bugs</h3>
+
+<p>Please, report bugs to <a href="rt@support.axiombox.com">rt@support.axiombox.com</a> or directly to the author.</p>
+
+<h3>Contribute</h3>
+
+<blockquote>
+  <p>git clone git://github.com/damog/feedbag.git</p>
+</blockquote>
+
+<p>...patch, build, hack and make pull requests. I'll be glad.</p>
+
+<h3>Author</h3>
+
+<p><a href="http://damog.net/">David Moreno</a> &lt;<a href="mailto:david@axiombox.com">david@axiombox.com</a>>.</p>
+
+<h3>Copyright</h3>
+
+<p>This is free software. See <a href="http://github.com/damog/feedbag/master/COPYING">COPYING</a> for more information.</p>
+
+<h3>Thanks</h3>
+
+<p><a href="http://maggit.net">Raquel</a>, for making <a href="http://axiombox.com">Axiombox</a> and most of my dreams possible. Also, <a href="http://github.com">GitHub</a> for making a nice code sharing service that doesn't suck.</p>

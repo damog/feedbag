@@ -36,6 +36,21 @@ module Feedbag
 	$feeds = []
 	$base_uri = nil
 
+	def self.feed?(url)
+		res = self.find(url)
+
+		# use LWR::Simple.normalize some time
+		url_uri = URI.parse(url)
+		url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
+
+		res = self.find(url)
+		if res.size == 1 and res.first == url
+			return true
+		else
+			return false
+		end
+	end
+
 	def self.find(url)
 		$feeds = []
 
