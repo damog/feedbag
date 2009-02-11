@@ -61,6 +61,16 @@ module Feedbag
 					return self.add_feed(url, nil)
 				end
 
+				# let's start by trying to validate if the gem is available
+				begin
+					require "feed_validator"
+					v = W3C::FeedValidator.new()
+					v.validate_url(url)
+					return self.add_feed(url, nil) if v.valid?
+				rescue
+					# scoo, yo
+				end
+
 				doc = Hpricot(f.read)
 
 				if doc.at("base") and doc.at("base")["href"]
@@ -107,7 +117,7 @@ module Feedbag
 	end
 
 	def self.looks_like_feed?(url)
-		if url =~ /(\.(rdf|xml|rdf)$|feed=(rss|atom)|(atom|feed)\/$)/i
+		if url =~ /(\.(rdf|xml|rdf)$|feed=(rss|atom)|(atom|feed)\/?$)/i
 			true
 		else
 			false
