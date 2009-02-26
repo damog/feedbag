@@ -55,20 +55,20 @@ module Feedbag
 		url_uri = URI.parse(url)
 		url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
 
+		# check if feed_valid is avail
+		begin
+			require "feed_validator"
+			v = W3C::FeedValidator.new
+			v.validate_url(url)
+			return self.add_feed(url, nil) if v.valid?
+		rescue LoadError
+			# scoo
+		end
+
 		begin
 			html = open(url) do |f|
 				if @content_types.include?(f.content_type.downcase)
 					return self.add_feed(url, nil)
-				end
-
-				# let's start by trying to validate if the gem is available
-				begin
-					require "feed_validator"
-					v = W3C::FeedValidator.new()
-					v.validate_url(url)
-					return self.add_feed(url, nil) if v.valid?
-				rescue
-					# scoo, yo
 				end
 
 				doc = Hpricot(f.read)
