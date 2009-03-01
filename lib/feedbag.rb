@@ -63,8 +63,8 @@ module Feedbag
 			return self.add_feed(url, nil) if v.valid?
 		rescue LoadError
 			# scoo
-		else
-			# scoo too
+    rescue => ex
+			$stderr.puts "#{ex.class} error ocurred with: `#{url}': #{ex.message}"
 		end
 
 		begin
