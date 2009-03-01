@@ -63,6 +63,8 @@ module Feedbag
 			return self.add_feed(url, nil) if v.valid?
 		rescue LoadError
 			# scoo
+		else
+			# scoo too
 		end
 
 		begin
