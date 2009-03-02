@@ -16,7 +16,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 require "rubygems"
 require "hpricot"
 require "open-uri"
@@ -63,6 +62,10 @@ module Feedbag
 			return self.add_feed(url, nil) if v.valid?
 		rescue LoadError
 			# scoo
+		rescue REXML::ParseException
+		  # usually indicates timeout
+		  # TODO: actually find out timeout. use Terminator?
+		  $stderr.puts "Feed looked like feed but might not have passed validation or timed out"
     rescue => ex
 			$stderr.puts "#{ex.class} error ocurred with: `#{url}': #{ex.message}"
 		end
