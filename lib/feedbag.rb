@@ -52,7 +52,13 @@ module Feedbag
 		$feeds = []
 
 		url_uri = URI.parse(url)
-		url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
+		url = nil
+		if url_uri.scheme.nil?
+		  url = "http://#{url_uri.to_s}"
+		else
+		  url = url_uri.to_s
+		end
+		#url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
 
 		# check if feed_valid is avail
 		begin
