@@ -39,6 +39,8 @@ module Feedbag
 		# use LWR::Simple.normalize some time
 		url_uri = URI.parse(url)
 		url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
+		# hack:
+		url.sub!(/^feed:\/\//, 'http://')
 
 		res = self.find(url)
 		if res.size == 1 and res.first == url
@@ -55,6 +57,8 @@ module Feedbag
 		url = nil
 		if url_uri.scheme.nil?
 		  url = "http://#{url_uri.to_s}"
+		elsif url_uri.scheme == "feed"
+		  return self.add_feed(url_uri.to_s.sub(/^feed:\/\//, 'http://'), nil)
 		else
 		  url = url_uri.to_s
 		end
