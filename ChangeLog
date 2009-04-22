@@ -1,3 +1,6 @@
+* 0.5.13.1 - Wed Apr 22 11:16:19 EDT 2009
+  - Changed args on find() from nil to {}
+
 * 0.5.13 - Wed Apr 22 11:12:40 EDT 2009
   - Added :narrow option so find() skips feed_validate and A links.
 

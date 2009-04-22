@@ -50,7 +50,7 @@ module Feedbag
 		end
 	end
 
-	def self.find(url, args = nil)
+	def self.find(url, args = {})
 		$feeds = []
 
 		url_uri = URI.parse(url)
