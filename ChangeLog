@@ -1,3 +1,6 @@
+* 0.5.13 - Wed Apr 22 11:12:40 EDT 2009
+  - Added :narrow option so find() skips feed_validate and A links.
+
 * 0.5.12 - Fri Mar 20 12:34:48 EDT 2009
 	- Added support for "feed://" URLs
 
