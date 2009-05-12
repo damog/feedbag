@@ -1,3 +1,6 @@
+* 0.5.99 - Tue May 12 12:52:22 EDT 2009
+  - Added rails/init.rb to load easily on a Rails app.
+
 * 0.5.13.1 - Wed Apr 22 11:16:19 EDT 2009
   - Changed args on find() from nil to {}
 
