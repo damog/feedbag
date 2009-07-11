@@ -1,10 +1,4 @@
-#!/usr/bin/ruby
-
-require "#{File.dirname(__FILE__)}/../feedbag"
-require "test/unit"
-require "open-uri"
-require "hpricot"
-require "pp"
+require File.dirname(__FILE__) + '/test_helper'
 
 class AtomAutoDiscoveryTest < Test::Unit::TestCase
 	def test_autodisc
