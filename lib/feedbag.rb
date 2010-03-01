@@ -86,7 +86,11 @@ module Feedbag
 
 		begin
 			html = open(url) do |f|
-				if @content_types.include?(f.content_type.downcase)
+				content_type = f.content_type.downcase
+				if content_type == "application/octet-stream" # open failed
+				  content_type = f.meta["content-type"].gsub(/;.*$/, '')
+				end
+				if @content_types.include?(content_type)
 					return self.add_feed(url, nil)
 				end
 
