@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "feedbag"
+
+def usage
+  %Q{
+    #{$0} <url 1> [<url 2> <url 3> ... <url n>]
+  }
+end
+
+if ARGV.empty?
+  puts usage
+  exit 1
+end
+
+ARGV.each do |url|
+  puts "== #{url}:"
+  feeds = Feedbag.find url
+  if feeds.empty?
+    puts "   no feeds found!"
+  else
+    feeds.each do |f|
+      puts " - #{f}"
+    end
+  end
+end
+

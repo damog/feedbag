@@ -1,3 +1,9 @@
+* 0.6 - Fri Mar  5 20:10:33 EST 2010
+  - Added bin/feedbag.
+  - Removed the args[:narrow] option, not really needed.
+  - Handle case where feed URLs contain GET parameters; add tests
+    by Patrick Reagan <patrick.reagan@viget.com>.
+
 * 0.5.99 - Tue May 12 12:52:22 EDT 2009
   - Added rails/init.rb to load easily on a Rails app.
 
