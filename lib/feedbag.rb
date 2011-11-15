@@ -101,6 +101,13 @@ module Feedbag
 				end
 
 				# first with links
+        (doc/"atom:link").each do |l|
+					next unless l["rel"]
+					if l["type"] and @content_types.include?(l["type"].downcase.strip) and l["rel"].downcase == "self"
+						self.add_feed(l["href"], url, $base_uri)
+					end
+				end
+
 				(doc/"link").each do |l|
 					next unless l["rel"]
 					if l["type"] and @content_types.include?(l["type"].downcase.strip) and (l["rel"].downcase =~ /alternate/i or l["rel"] == "service.feed")
