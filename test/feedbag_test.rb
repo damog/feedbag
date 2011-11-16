@@ -15,5 +15,16 @@ class FeedbagTest < ActiveSupport::TestCase
     
     assert Feedbag.feed?(rss_url)
   end
-  
+
+  test "Feedbag find should discover feeds containing atom:link" do
+    feeds = []
+    feeds << 'http://www.psfk.com/feeds/mashable'
+    feeds << 'http://jenniferlynch.wordpress.com/feed'
+    feeds << 'http://lurenbijdeburen.wordpress.com/feed'
+
+    feeds.each do |url|
+      assert_equal [url], Feedbag.find(url)
+    end
+  end
+
 end
