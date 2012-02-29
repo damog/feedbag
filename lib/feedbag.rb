@@ -94,11 +94,6 @@ module Feedbag
 
 				doc = Hpricot(f.read)
 
-        # Added support for feeds like http://tabtimes.com/tbfeed/mashable/full.xml
-        if url.match(/.xml$/) and doc.root["xml:base"].strip == url.strip
-					return self.add_feed(url, nil)
-        end
-
 				if doc.at("base") and doc.at("base")["href"]
 					$base_uri = doc.at("base")["href"]
 				else
@@ -134,6 +129,10 @@ module Feedbag
 				  end
 				end
 
+        # Added support for feeds like http://tabtimes.com/tbfeed/mashable/full.xml
+        if url.match(/.xml$/) and doc.root and doc.root["xml:base"] and doc.root["xml:base"].strip == url.strip
+					self.add_feed(url, nil)
+        end
 			end
 		rescue Timeout::Error => err
 			$stderr.puts "Timeout error ocurred with `#{url}: #{err}'"
