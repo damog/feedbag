@@ -94,6 +94,11 @@ module Feedbag
 
 				doc = Hpricot(f.read)
 
+        # Added support for feeds like http://tabtimes.com/tbfeed/mashable/full.xml
+        if url.match(/.xml$/) and doc.root["xml:base"].strip == url.strip
+					return self.add_feed(url, nil)
+        end
+
 				if doc.at("base") and doc.at("base")["href"]
 					$base_uri = doc.at("base")["href"]
 				else
@@ -189,3 +194,10 @@ module Feedbag
 	end
 end
 
+if __FILE__ == $0
+  if ARGV.size == 0
+    puts 'usage: feedbag url'
+  else
+    puts Feedbag.find ARGV.first
+  end
+end
