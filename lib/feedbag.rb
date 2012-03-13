@@ -101,6 +101,13 @@ module Feedbag
 				end
 
 				# first with links
+        (doc/"atom:link").each do |l|
+					next unless l["rel"]
+					if l["type"] and @content_types.include?(l["type"].downcase.strip) and l["rel"].downcase == "self"
+						self.add_feed(l["href"], url, $base_uri)
+					end
+				end
+
 				(doc/"link").each do |l|
 					next unless l["rel"]
 					if l["type"] and @content_types.include?(l["type"].downcase.strip) and (l["rel"].downcase =~ /alternate/i or l["rel"] == "service.feed")
@@ -122,6 +129,10 @@ module Feedbag
 				  end
 				end
 
+        # Added support for feeds like http://tabtimes.com/tbfeed/mashable/full.xml
+        if url.match(/.xml$/) and doc.root and doc.root["xml:base"] and doc.root["xml:base"].strip == url.strip
+					self.add_feed(url, nil)
+        end
 			end
 		rescue Timeout::Error => err
 			$stderr.puts "Timeout error ocurred with `#{url}: #{err}'"
@@ -182,3 +193,10 @@ module Feedbag
 	end
 end
 
+if __FILE__ == $0
+  if ARGV.size == 0
+    puts 'usage: feedbag url'
+  else
+    puts Feedbag.find ARGV.first
+  end
+end
