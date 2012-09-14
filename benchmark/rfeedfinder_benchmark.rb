@@ -1,5 +1,5 @@
 require "benchmark"
-require "rubygems"
+#require "rubygems"
 
 sites = [
 	"log.damog.net",
