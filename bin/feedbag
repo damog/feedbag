@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-require "feedbag"
+require 'rubygems'
+require 'feedbag'
+
 
 def usage
   %Q{
