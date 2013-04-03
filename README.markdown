@@ -1,7 +1,5 @@
 Feedbag
 =======
-> Do you want me to drag my sack across your face?
->                                 - Glenn Quagmire
 
 Feedbag is a feed auto-discovery Ruby library. You don't need to know more about it. It is said to be:
 
