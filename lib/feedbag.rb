@@ -22,7 +22,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 require "rubygems"
-require "hpricot"
+require "nokogiri"
 require "open-uri"
 require "net/http"
 
@@ -97,7 +97,7 @@ module Feedbag
 					return self.add_feed(url, nil)
 				end
 
-				doc = Hpricot(f.read)
+				doc = Nokogiri::HTML(f.read)
 
 				if doc.at("base") and doc.at("base")["href"]
 					$base_uri = doc.at("base")["href"]
