@@ -61,10 +61,9 @@ Feedbag will find them all, but it will return the most important ones on the fi
 ### Why should you use it?
 
 - Because it's cool.
-- Because it only uses [Hpricot](https://code.whytheluckystiff.net/hpricot/) as dependency.
+- Because it only uses [Nokogiri](http://nokogiri.org/) as dependency.
 - Because it follows modern feed filename conventions (like those ones used by WordPress blogs, or Blogger, etc).
 - Because it's a single file you can embed easily in your application.
-- Because it passes most of the Mark Pilgrim's [Atom auto-discovery test suite](http://diveintomark.org/tests/client/autodiscovery/). It doesn't pass them all because some of those tests are	broken (citation needed).
 
 ### Why did I build it?
 
