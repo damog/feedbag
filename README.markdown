@@ -1,9 +1,7 @@
 Feedbag
 =======
 
-Feedbag is a feed auto-discovery Ruby library. You don't need to know more about it. It is said to be:
-
-> Ruby's favorite auto-discovery tool/library!
+Feedbag is a Ruby library for the auto-discovery of syndicated feeds (RSS/Atom).
 
 ### Quick synopsis
 
@@ -11,8 +9,8 @@ Feedbag is a feed auto-discovery Ruby library. You don't need to know more about
 	=> true
 	>> require "feedbag"
  	=> true
- 	>> Feedbag.find "log.damog.net"
- 	=> ["http://feeds.feedburner.com/TeoremaDelCerdoInfinito", "http://log.damog.net/comments/feed/"]
+ 	>> Feedbag.find "http://damog.nl/blog"
+ 	=> ["http://damog.net/blog/index.rss", "http://damog.net/blog/tags/feed", "http://damog.net/blog/tags/rfeed"]
 	>> Feedbag.feed?("google.com")
 	=> false
 	>> Feedbag.feed?("http://planet.debian.org/rss20.xml")
@@ -20,7 +18,7 @@ Feedbag is a feed auto-discovery Ruby library. You don't need to know more about
 
 ### Installation
 
-	$ sudo gem install damog-feedbag -s http://gems.github.com/
+	$ gem install feedbag
 
 Or just grab feedbag.rb and use it on your own project:
 
