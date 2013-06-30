@@ -26,21 +26,30 @@ require "nokogiri"
 require "open-uri"
 require "net/http"
 
-module Feedbag
+class Feedbag
 
-	@content_types = [
+	CONTENT_TYPES = [
 		'application/x.atom+xml',
 		'application/atom+xml',
 		'application/xml',
 		'text/xml',
 		'application/rss+xml',
 		'application/rdf+xml',
-	]
+	].freeze
 
-	$feeds = []
-	$base_uri = nil
+  def self.feed?(url)
+    new.feed?(url)
+  end
 
-	def self.feed?(url)
+  def self.find(url, args = {})
+    new.find(url, args = {})
+  end
+
+  def initialize
+    @feeds = []
+  end
+
+	def feed?(url)
 		# use LWR::Simple.normalize some time
 		url_uri = URI.parse(url)
 		url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
@@ -49,7 +58,7 @@ module Feedbag
 		# hack:
 		url.sub!(/^feed:\/\//, 'http://')
 
-		res = self.find(url)
+		res = Feedbag.find(url)
 		if res.size == 1 and res.first == url
 			return true
 		else
@@ -57,9 +66,7 @@ module Feedbag
 		end
 	end
 
-	def self.find(url, args = {})
-		$feeds = []
-
+	def find(url, args = {})
 		url_uri = URI.parse(url)
 		url = nil
 		if url_uri.scheme.nil?
@@ -93,44 +100,44 @@ module Feedbag
 				if content_type == "application/octet-stream" # open failed
 				  content_type = f.meta["content-type"].gsub(/;.*$/, '')
 				end
-				if @content_types.include?(content_type)
+				if CONTENT_TYPES.include?(content_type)
 					return self.add_feed(url, nil)
 				end
 
 				doc = Nokogiri::HTML(f.read)
 
 				if doc.at("base") and doc.at("base")["href"]
-					$base_uri = doc.at("base")["href"]
+					@base_uri = doc.at("base")["href"]
 				else
-					$base_uri = nil
+					@base_uri = nil
 				end
 
 				# first with links
         (doc/"atom:link").each do |l|
 					next unless l["rel"]
-					if l["type"] and @content_types.include?(l["type"].downcase.strip) and l["rel"].downcase == "self"
-						self.add_feed(l["href"], url, $base_uri)
+					if l["type"] and CONTENT_TYPES.include?(l["type"].downcase.strip) and l["rel"].downcase == "self"
+						self.add_feed(l["href"], url, @base_uri)
 					end
 				end
 
 				(doc/"link").each do |l|
 					next unless l["rel"]
-					if l["type"] and @content_types.include?(l["type"].downcase.strip) and (l["rel"].downcase =~ /alternate/i or l["rel"] == "service.feed")
-						self.add_feed(l["href"], url, $base_uri)
+					if l["type"] and CONTENT_TYPES.include?(l["type"].downcase.strip) and (l["rel"].downcase =~ /alternate/i or l["rel"] == "service.feed")
+						self.add_feed(l["href"], url, @base_uri)
 					end
 				end
 
 				(doc/"a").each do |a|
   				next unless a["href"]
 	  			if self.looks_like_feed?(a["href"]) and (a["href"] =~ /\// or a["href"] =~ /#{url_uri.host}/)
-		  			self.add_feed(a["href"], url, $base_uri)
+		  			self.add_feed(a["href"], url, @base_uri)
 			  	end
 				end
 
   			(doc/"a").each do |a|
 	  			next unless a["href"]
 		  		if self.looks_like_feed?(a["href"])
-			  		self.add_feed(a["href"], url, $base_uri)
+			  		self.add_feed(a["href"], url, @base_uri)
 				  end
 				end
 
@@ -148,12 +155,12 @@ module Feedbag
 		rescue => ex
 			$stderr.puts "#{ex.class} error ocurred with: `#{url}': #{ex.message}"
 		ensure
-			return $feeds
+			return @feeds
 		end
 		
 	end
 
-	def self.looks_like_feed?(url)
+	def looks_like_feed?(url)
 		if url =~ /(\.(rdf|xml|rdf|rss)$|feed=(rss|atom)|(atom|feed)\/?$)/i
 			true
 		else
@@ -161,7 +168,7 @@ module Feedbag
 		end
 	end
 
-	def self.add_feed(feed_url, orig_url, base_uri = nil)
+	def add_feed(feed_url, orig_url, base_uri = nil)
 		# puts "#{feed_url} - #{orig_url}"
 		url = feed_url.sub(/^feed:/, '').strip
 
@@ -182,11 +189,11 @@ module Feedbag
 		end
 
 		# verify url is really valid
-		$feeds.push(url) unless $feeds.include?(url)# if self._is_http_valid(URI.parse(url), orig_url)
+		@feeds.push(url) unless @feeds.include?(url)# if self._is_http_valid(URI.parse(url), orig_url)
 	end
 
 	# not used. yet.
-	def self._is_http_valid(uri, orig_url)
+	def _is_http_valid(uri, orig_url)
 		req = Net::HTTP.get_response(uri)
 		orig_uri = URI.parse(orig_url)
 		case req
