@@ -1,11 +1,7 @@
 Feedbag
 =======
-> Do you want me to drag my sack across your face?
->                                 - Glenn Quagmire
 
-Feedbag is a feed auto-discovery Ruby library. You don't need to know more about it. It is said to be:
-
-> Ruby's favorite auto-discovery tool/library!
+Feedbag is a Ruby library for the auto-discovery of syndicated feeds (RSS/Atom).
 
 ### Quick synopsis
 
@@ -13,8 +9,8 @@ Feedbag is a feed auto-discovery Ruby library. You don't need to know more about
 	=> true
 	>> require "feedbag"
  	=> true
- 	>> Feedbag.find "log.damog.net"
- 	=> ["http://feeds.feedburner.com/TeoremaDelCerdoInfinito", "http://log.damog.net/comments/feed/"]
+ 	>> Feedbag.find "http://damog.nl/blog"
+ 	=> ["http://damog.net/blog/index.rss", "http://damog.net/blog/tags/feed", "http://damog.net/blog/tags/rfeed"]
 	>> Feedbag.feed?("google.com")
 	=> false
 	>> Feedbag.feed?("http://planet.debian.org/rss20.xml")
@@ -22,7 +18,7 @@ Feedbag is a feed auto-discovery Ruby library. You don't need to know more about
 
 ### Installation
 
-	$ sudo gem install damog-feedbag -s http://gems.github.com/
+	$ gem install feedbag
 
 Or just grab feedbag.rb and use it on your own project:
 
@@ -65,10 +61,9 @@ Feedbag will find them all, but it will return the most important ones on the fi
 ### Why should you use it?
 
 - Because it's cool.
-- Because it only uses [Hpricot](https://code.whytheluckystiff.net/hpricot/) as dependency.
+- Because it only uses [Nokogiri](http://nokogiri.org/) as dependency.
 - Because it follows modern feed filename conventions (like those ones used by WordPress blogs, or Blogger, etc).
 - Because it's a single file you can embed easily in your application.
-- Because it passes most of the Mark Pilgrim's [Atom auto-discovery test suite](http://diveintomark.org/tests/client/autodiscovery/). It doesn't pass them all because some of those tests are	broken (citation needed).
 
 ### Why did I build it?
 
