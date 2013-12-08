@@ -14,6 +14,14 @@ Feedbag is Ruby's favorite auto-discovery tool/library!
 	>> Feedbag.feed?("http://jobs.perl.org/rss/standard.rss")
     => true
 
+### Installation
+
+	$ gem install feedbag
+
+Or just grab feedbag.rb and use it on your own project:
+
+	$ wget http://github.com/damog/feedbag/raw/master/lib/feedbag.rb
+
 You can also use an installed command line tool for quick queries, if you install the gem:
 
     $ feedbag http://rubygems.org/profiles/damog
@@ -31,7 +39,7 @@ Or just grab feedbag.rb and use it on your own project:
 
 ### Why should you use it?
 
-- Because it only uses [Hpricot](https://code.whytheluckystiff.net/hpricot/) as dependency.
+- Because it only uses [Nokogiri](http://nokogiri.org/) as dependency.
 - Because it follows modern feed filename conventions (like those ones used by WordPress blogs, or Blogger, etc).
 - Because it's a single file you can embed easily in your application.
 - Because it's faster than rfeedfinder.
