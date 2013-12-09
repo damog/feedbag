@@ -22,20 +22,11 @@ Or just grab feedbag.rb and use it on your own project:
 
 	$ wget http://github.com/damog/feedbag/raw/master/lib/feedbag.rb
 
-You can also use an installed command line tool for quick queries, if you install the gem:
+You can also use the command line tool for quick queries, if you install the gem:
 
     $ feedbag http://rubygems.org/profiles/damog
     == http://rubygems.org/profiles/damog:
      - http://feeds.feedburner.com/gemcutter-latest
-
-
-### Installation
-
-	$ sudo gem install feedbag
-
-Or just grab feedbag.rb and use it on your own project:
-
-	$ wget http://github.com/damog/feedbag/raw/master/lib/feedbag.rb
 
 ### Why should you use it?
 
