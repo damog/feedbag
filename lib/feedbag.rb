@@ -91,7 +91,7 @@ class Feedbag
 	    # TODO: actually find out timeout. use Terminator?
 	    # $stderr.puts "Feed looked like feed but might not have passed validation or timed out"
     rescue => ex
-  		$stderr.puts "#{ex.class} error ocurred with: `#{url}': #{ex.message}"
+  		$stderr.puts "#{ex.class} error occurred with: `#{url}': #{ex.message}"
 	  end
 
 		begin
@@ -147,13 +147,13 @@ class Feedbag
         end
 			end
 		rescue Timeout::Error => err
-			$stderr.puts "Timeout error ocurred with `#{url}: #{err}'"
+			$stderr.puts "Timeout error occurred with `#{url}: #{err}'"
 		rescue OpenURI::HTTPError => the_error
-			$stderr.puts "Error ocurred with `#{url}': #{the_error}"
+			$stderr.puts "Error occurred with `#{url}': #{the_error}"
 		rescue SocketError => err
-			$stderr.puts "Socket error ocurred with: `#{url}': #{err}"
+			$stderr.puts "Socket error occurred with: `#{url}': #{err}"
 		rescue => ex
-			$stderr.puts "#{ex.class} error ocurred with: `#{url}': #{ex.message}"
+			$stderr.puts "#{ex.class} error occurred with: `#{url}': #{ex.message}"
 		ensure
 			return @feeds
 		end
