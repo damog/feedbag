@@ -71,6 +71,7 @@ class Feedbag
 		url = nil
 		if url_uri.scheme.nil?
 		  url = "http://#{url_uri.to_s}"
+		  url_uri = URI.parse(url) # don't remove, will throw an error for sites like 'www.daringfireball.net'
 		elsif url_uri.scheme == "feed"
 		  return self.add_feed(url_uri.to_s.sub(/^feed:\/\//, 'http://'), nil)
 		else
@@ -79,22 +80,29 @@ class Feedbag
 		#url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
 
 		# check if feed_valid is avail
-    begin
-  		require "feed_validator"
-	  	v = W3C::FeedValidator.new
-		  v.validate_url(url)
+	    begin
+	  		require "feed_validator"
+		  	v = W3C::FeedValidator.new
+			v.validate_url(url)
 			return self.add_feed(url, nil) if v.valid?
-  	rescue LoadError
-	  	# scoo
-		rescue REXML::ParseException
-  	  # usually indicates timeout
-	    # TODO: actually find out timeout. use Terminator?
-	    # $stderr.puts "Feed looked like feed but might not have passed validation or timed out"
-    rescue => ex
-  		$stderr.puts "#{ex.class} error occurred with: `#{url}': #{ex.message}"
-	  end
+	  	rescue LoadError
+		  	# scoo
+			rescue REXML::ParseException
+	  	  # usually indicates timeout
+		    # TODO: actually find out timeout. use Terminator?
+		    # $stderr.puts "Feed looked like feed but might not have passed validation or timed out"
+	    rescue => ex
+	  		$stderr.puts "#{ex.class} error occurred with: `#{url}': #{ex.message}"
+	    end
 
 		begin
+			
+			# Easily find RSS Feed for "common sites" (like Youtube, Vimeo, Blogger, etc.)
+			url_feed = find_common(url_uri)
+			if !url_feed.nil? 
+				return self.add_feed(url_feed.sub(/^feed:\/\//, 'http://'), nil)
+			end
+
 			html = open(url) do |f|
 				content_type = f.content_type.downcase
 				if content_type == "application/octet-stream" # open failed
@@ -113,7 +121,7 @@ class Feedbag
 				end
 
 				# first with links
-        (doc/"atom:link").each do |l|
+        		(doc/"atom:link").each do |l|
 					next unless l["rel"]
 					if l["type"] and CONTENT_TYPES.include?(l["type"].downcase.strip) and l["rel"].downcase == "self"
 						self.add_feed(l["href"], url, @base_uri)
@@ -128,17 +136,17 @@ class Feedbag
 				end
 
 				(doc/"a").each do |a|
-  				next unless a["href"]
-	  			if self.looks_like_feed?(a["href"]) and (a["href"] =~ /\// or a["href"] =~ /#{url_uri.host}/)
-		  			self.add_feed(a["href"], url, @base_uri)
-			  	end
+	  				next unless a["href"]
+		  			if self.looks_like_feed?(a["href"]) and (a["href"] =~ /\// or a["href"] =~ /#{url_uri.host}/)
+			  			self.add_feed(a["href"], url, @base_uri)
+				  	end
 				end
 
-  			(doc/"a").each do |a|
-	  			next unless a["href"]
-		  		if self.looks_like_feed?(a["href"])
-			  		self.add_feed(a["href"], url, @base_uri)
-				  end
+	  			(doc/"a").each do |a|
+		  			next unless a["href"]
+			  		if self.looks_like_feed?(a["href"])
+				  		self.add_feed(a["href"], url, @base_uri)
+					end
 				end
 
         # Added support for feeds like http://tabtimes.com/tbfeed/mashable/full.xml
@@ -158,6 +166,34 @@ class Feedbag
 			return @feeds
 		end
 		
+	end
+
+	def find_common(uri)
+
+		# Youtube
+		if uri.host.include?("youtube.com") 
+			index = nil
+
+			if uri.path.include?("/user/")
+				index = "/user/".length
+			elsif uri.path.include?("/channel/")
+				index = "/channel/".length
+			end
+
+			if !index.nil?
+				index_next_bar = uri.path[index..-1].index("/")
+				if index_next_bar.nil?
+					index_next_bar = uri.path.length
+				end
+
+				index_end = index + index_next_bar - 1
+				channel_or_user_name = uri.path[index..index_end]
+				return "http://gdata.youtube.com/feeds/base/users/#{channel_or_user_name}/uploads"
+			end
+		end 
+
+		# Blogger, Wordpress, Vimeo, etc. to be done in a near future.
+
 	end
 
 	def looks_like_feed?(url)
