@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class FeedbagTest < Test::Unit::TestCase
-  
+
   context "Feedbag.feed? should know that an RSS url is a feed" do
     setup do
       @rss_url = 'http://example.com/rss/'
@@ -11,7 +11,7 @@ class FeedbagTest < Test::Unit::TestCase
       assert Feedbag.feed?(@rss_url)
     end
   end
-  
+
   context "Feedbag.feed? should know that an RSS url with parameters is a feed" do
     setup do
       @rss_url = "http://example.com/data?format=rss"
