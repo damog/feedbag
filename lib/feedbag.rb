@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-# Copyright (c) 2012 David Moreno <david@axiombox.com>
+# Copyright (c) 2008-2014 David Moreno <david@axiombox.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
