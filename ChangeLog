@@ -1,3 +1,6 @@
+* 0.9.3 - Sun Aug  3 13:48:01 CEST 2014
+  - Rebuild of the gem to get rid of Hpricot.
+
 * 0.9.2 - Sat Dec  7 18:32:17 CET 2013
   - Up to date bits and pieces.
 
