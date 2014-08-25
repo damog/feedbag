@@ -5,22 +5,22 @@ Feedbag is Ruby's favorite auto-discovery tool/library!
 
 ### Quick synopsis
 
-	>> require "feedbag"
- 	=> true
- 	>> Feedbag.find "damog.net/blog"
+    >> require "feedbag"
+    => true
+    >> Feedbag.find "damog.net/blog"
     => ["http://damog.net/blog/index.rss", "http://damog.net/blog/tags/feed", "http://damog.net/blog/tags/rfeed"]
     >> Feedbag.feed? "perl.org"
     => false
-	>> Feedbag.feed?("http://jobs.perl.org/rss/standard.rss")
+    >> Feedbag.feed?("http://jobs.perl.org/rss/standard.rss")
     => true
 
 ### Installation
 
-	$ gem install feedbag
+    $ gem install feedbag
 
 Or just grab feedbag.rb and use it on your own project:
 
-	$ wget http://github.com/damog/feedbag/raw/master/lib/feedbag.rb
+    $ wget http://github.com/damog/feedbag/raw/master/lib/feedbag.rb
 
 You can also use the command line tool for quick queries, if you install the gem:
 
@@ -39,7 +39,12 @@ You can also use the command line tool for quick queries, if you install the gem
 
 [David Moreno](http://damog.net/) <[david@axiombox.com](mailto:david@axiombox.com)>.
 
+### Donations
+
+![Superfeedr](http://damog.net/files/misc/superfeedr_150.png)
+
+[Superfeedr](http://superfeedr.com) has kindly financially [supported](https://github.com/damog/feedbag/issues/9) the development of Feedbag.
+
 ### Copyright
 
 This is free software. See [COPYING](http://github.com/damog/feedbag/master/COPYING) for more information.
-
