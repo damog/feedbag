@@ -2,13 +2,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{feedbag}
-  s.version = "0.9.4"
+  s.version = "0.9.5"
   s.homepage = "http://github.com/damog/feedbag"
   s.rubyforge_project = "feedbag"
   s.licenses = ["MIT"]
 
   s.authors = ["David Moreno", "Derek Willis"]
-  s.date = %q{2014-08-03}
+  s.date = %q{2014-10-16}
   s.description = %q{Ruby's favorite feed auto-discoverty tool}
   s.email = %q{david@axiombox.com}
   s.extra_rdoc_files = ["README.markdown", "COPYING"]
