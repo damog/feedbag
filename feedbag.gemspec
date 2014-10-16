@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.has_rdoc = true
   s.rdoc_options = ["--main", "README.markdown"]
   s.summary = %q{Ruby's favorite feed auto-discovery tool}
-  s.add_dependency('nokogiri', '~> 0') 
+  s.add_dependency('nokogiri', '~> 1.0') 
   s.add_development_dependency 'shoulda', '~> 0'
   s.add_development_dependency 'mocha', '~> 0.12', '>= 0.12.0'
   s.bindir = 'bin'
