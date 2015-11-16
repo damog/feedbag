@@ -47,4 +47,4 @@ You can also use the command line tool for quick queries, if you install the gem
 
 ### Copyright
 
-This is free software. See [COPYING](http://github.com/damog/feedbag/master/COPYING) for more information.
+This is free software. See [COPYING](https://raw.githubusercontent.com/damog/feedbag/master/COPYING) for more information.
