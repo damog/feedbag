@@ -9,10 +9,10 @@
 # distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so, subject to
 # the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -115,14 +115,14 @@ class Feedbag
 
         # first with links
         (doc/"atom:link").each do |l|
-          next unless l["rel"]
+          next unless l["rel"] && l["href"].present?
           if l["type"] and CONTENT_TYPES.include?(l["type"].downcase.strip) and l["rel"].downcase == "self"
             self.add_feed(l["href"], url, @base_uri)
           end
         end
 
         (doc/"link").each do |l|
-          next unless l["rel"]
+          next unless l["rel"] && l["href"].present?
           if l["type"] and CONTENT_TYPES.include?(l["type"].downcase.strip) and (l["rel"].downcase =~ /alternate/i or l["rel"] == "service.feed")
             self.add_feed(l["href"], url, @base_uri)
           end
