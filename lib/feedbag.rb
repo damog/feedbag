@@ -36,6 +36,7 @@ class Feedbag
     'text/xml',
     'application/rss+xml',
     'application/rdf+xml',
+    'application/json',   
   ].freeze
 
   def self.feed?(url)
@@ -121,11 +122,14 @@ class Feedbag
           end
         end
 
-        (doc/"link").each do |l|
-          next unless l["rel"] && l["href"].present?
-          if l["type"] and CONTENT_TYPES.include?(l["type"].downcase.strip) and (l["rel"].downcase =~ /alternate/i or l["rel"] == "service.feed")
+        doc.xpath("//link[@rel='alternate' or @rel='service.feed'][@href][@type]").each do |l|
+          if CONTENT_TYPES.include?(l['type'].downcase.strip)
             self.add_feed(l["href"], url, @base_uri)
           end
+        end
+
+        doc.xpath("//link[@rel='alternate' and @type='application/json'][@href]").each do |e| 
+          self.add_feed(e['href'], url, @base_uri) if self.looks_like_feed?(e['href'])
         end
 
         (doc/"a").each do |a|
