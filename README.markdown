@@ -33,11 +33,11 @@ You can also use the command line tool for quick queries, if you install the gem
 - Because it only uses [Nokogiri](http://nokogiri.org/) as dependency.
 - Because it follows modern feed filename conventions (like those ones used by WordPress blogs, or Blogger, etc).
 - Because it's a single file you can embed easily in your application.
-- Because it's faster than rfeedfinder.
+- Because it's faster than anything else.
 
 ### Author
 
-[David Moreno](http://damog.net/) <[david@axiombox.com](mailto:david@axiombox.com)>.
+[David Moreno](http://damog.net/) <[damog@damog.net](mailto:damog@damog.net)>.
 
 ### Donations
 
@@ -47,4 +47,4 @@ You can also use the command line tool for quick queries, if you install the gem
 
 ### Copyright
 
-This is free software. See [COPYING](https://raw.githubusercontent.com/damog/feedbag/master/COPYING) for more information.
+This is and will always be free software. See [COPYING](https://raw.githubusercontent.com/damog/feedbag/master/COPYING) for more information.
