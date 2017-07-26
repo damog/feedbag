@@ -33,4 +33,16 @@ class FeedbagTest < Test::Unit::TestCase
     end
   end
 
+  context "Feedbag#looks_like_feed? should assume that url with proper extension is a feed" do
+    setup do
+      @feeds = ['http://feeds.bbci.co.uk/news/rss.xml', 'http://feeds.bbci.co.uk/news/rss.rdf',
+                'http://feeds.bbci.co.uk/news/rss.rss', 'http://feeds.bbci.co.uk/news/rss.xml?edition=int']
+    end
+    should "return true" do
+      @feeds.each do |url|
+        assert Feedbag.new.looks_like_feed?(url)
+      end
+    end
+  end
+
 end
