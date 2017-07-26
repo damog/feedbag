@@ -45,4 +45,16 @@ class FeedbagTest < Test::Unit::TestCase
     end
   end
 
+  context "Feedbag find should discover JSON Feeds" do
+    should "find json feed" do
+      src = 'test/testcases/json1.html'
+      stub_request(:any, "example3.com").to_return(body: File.new(src), status: 200,  headers: {"Content-Type" => 'text/html'})
+      result = Feedbag.find('http://example3.com')
+      
+      assert result.include?('https://blog.booko.com.au/feed/json/')
+      assert result.include?('https://blog.booko.com.au/feed/')
+      assert result.include?('https://blog.booko.com.au/comments/feed/')
+    end
+  end
+
 end

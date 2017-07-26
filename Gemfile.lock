@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    feedbag (0.9.1)
-      nokogiri
+    feedbag (0.9.6)
+      nokogiri (~> 1.0)
+      open_uri_redirections (~> 0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -10,23 +11,41 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    hashdiff (0.3.4)
     i18n (0.6.1)
     metaclass (0.0.1)
+    mini_portile2 (2.1.0)
     mocha (0.12.10)
       metaclass (~> 0.0.1)
     multi_json (1.7.2)
-    nokogiri (1.5.9)
+    nokogiri (1.7.2)
+      mini_portile2 (~> 2.1.0)
+    open_uri_redirections (0.2.1)
+    public_suffix (2.0.5)
+    safe_yaml (1.0.4)
     shoulda (3.4.0)
       shoulda-context (~> 1.0, >= 1.0.1)
       shoulda-matchers (~> 1.0, >= 1.4.1)
     shoulda-context (1.1.0)
     shoulda-matchers (1.4.1)
       activesupport (>= 3.0.0)
+    webmock (3.0.1)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   feedbag!
-  mocha (~> 0.12.0)
-  shoulda
+  mocha (~> 0.12, >= 0.12.0)
+  shoulda (~> 3)
+  webmock (~> 3)
+
+BUNDLED WITH
+   1.14.6
