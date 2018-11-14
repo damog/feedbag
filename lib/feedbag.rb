@@ -36,7 +36,7 @@ class Feedbag
     'text/xml',
     'application/rss+xml',
     'application/rdf+xml',
-    'application/json',   
+    'application/json',
   ].freeze
 
   def self.feed?(url)
@@ -97,7 +97,7 @@ class Feedbag
     end
 
     begin
-      html = open(url, :allow_redirections => :all) do |f|
+      html = open(url, :allow_redirections => :all, "User-Agent" => "Mozilla/5.0") do |f|
         content_type = f.content_type.downcase
         if content_type == "application/octet-stream" # open failed
           content_type = f.meta["content-type"].gsub(/;.*$/, '')
@@ -128,7 +128,7 @@ class Feedbag
           end
         end
 
-        doc.xpath("//link[@rel='alternate' and @type='application/json'][@href]").each do |e| 
+        doc.xpath("//link[@rel='alternate' and @type='application/json'][@href]").each do |e|
           self.add_feed(e['href'], url, @base_uri) if self.looks_like_feed?(e['href'])
         end
 
