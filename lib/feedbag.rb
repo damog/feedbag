@@ -166,7 +166,7 @@ class Feedbag
   end
 
   def looks_like_feed?(url)
-    if url =~ /(\.(rdf|xml|rss)$|feed=(rss|atom)|(atom|feed)\/?$)/i
+    if url =~ /(\.(rdf|xml|rss)(\?([\w'\-%]?(=[\w'\-%.]*)?(&|#)?)+)?(:[\w'\-%]+)?$|feed=(rss|atom)|(atom|feed)\/?$)/i
       true
     else
       false
