@@ -1,3 +1,7 @@
+* 0.10 - Sun Jan 13 13:10:49 CET 2019
+  - Critical vulnerability fixed due to:
+    https://nvd.nist.gov/vuln/detail/CVE-2017-9050
+
 * 0.9.8 - Sun Jun 18 20:51:51 CEST 2017
   - Merged support for JSON feeds by @dkam.
 

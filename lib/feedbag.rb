@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-# Copyright (c) 2008-2014 David Moreno <david@axiombox.com>
+# Copyright (c) 2008-2019 David Moreno <david@axiombox.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -36,7 +36,7 @@ class Feedbag
     'text/xml',
     'application/rss+xml',
     'application/rdf+xml',
-    'application/json',   
+    'application/json',
   ].freeze
 
   def self.feed?(url)
@@ -128,7 +128,7 @@ class Feedbag
           end
         end
 
-        doc.xpath("//link[@rel='alternate' and @type='application/json'][@href]").each do |e| 
+        doc.xpath("//link[@rel='alternate' and @type='application/json'][@href]").each do |e|
           self.add_feed(e['href'], url, @base_uri) if self.looks_like_feed?(e['href'])
         end
 
