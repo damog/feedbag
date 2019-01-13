@@ -22,7 +22,7 @@ Feedbag is Ruby's favorite auto-discovery tool/library!
 
 Or just grab feedbag.rb and use it on your own project:
 
-    $ wget http://github.com/damog/feedbag/raw/master/lib/feedbag.rb
+    $ wget https://raw.githubusercontent.com/damog/feedbag/master/lib/feedbag.rb
 
 You can also use the command line tool for quick queries, if you install the gem:
 
@@ -43,7 +43,7 @@ You can also use the command line tool for quick queries, if you install the gem
 
 ### Donations
 
-![Superfeedr](http://damog.net/files/misc/superfeedr_150.png)
+![Superfeedr](https://raw.githubusercontent.com/damog/feedbag/master/img/superfeedr_150.png)
 
 [Superfeedr](http://superfeedr.com) has kindly financially [supported](https://github.com/damog/feedbag/issues/9) the development of Feedbag.
 
