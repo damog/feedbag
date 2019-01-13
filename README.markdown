@@ -5,14 +5,16 @@ Feedbag is Ruby's favorite auto-discovery tool/library!
 
 ### Quick synopsis
 
-    >> require "feedbag"
-    => true
-    >> Feedbag.find "damog.net/blog"
-    => ["http://damog.net/blog/index.rss", "http://damog.net/blog/tags/feed", "http://damog.net/blog/tags/rfeed"]
-    >> Feedbag.feed? "perl.org"
-    => false
-    >> Feedbag.feed?("http://jobs.perl.org/rss/standard.rss")
-    => true
+```ruby
+>> require "feedbag"
+=> true
+>> Feedbag.find "damog.net/blog"
+=> ["http://damog.net/blog/atom.xml"]
+>> Feedbag.feed? "perl.org"
+=> false
+>> Feedbag.feed?("https://m.signalvnoise.com/feed")
+=> true
+```
 
 ### Installation
 
@@ -24,9 +26,9 @@ Or just grab feedbag.rb and use it on your own project:
 
 You can also use the command line tool for quick queries, if you install the gem:
 
-    $ feedbag http://rubygems.org/profiles/damog
-    == http://rubygems.org/profiles/damog:
-     - http://feeds.feedburner.com/gemcutter-latest
+    » feedbag https://www.ruby-lang.org/en/
+    == https://www.ruby-lang.org/en/:
+    - https://www.ruby-lang.org/en/feeds/news.rss
 
 ### Why should you use it?
 
