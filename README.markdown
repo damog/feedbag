@@ -37,6 +37,10 @@ You can also use the command line tool for quick queries, if you install the gem
 - Because it's a single file you can embed easily in your application.
 - Because it's faster than anything else.
 
+### Web Service
+
+Now you can also POST directly into an AWS Lambda function webservice that runs `Feedbag.find()`. Don't overuse it. It's [here](https://github.com/damog/aws-lambda-feedbag).
+
 ### Author
 
 [David Moreno](http://damog.net/) <[damog@damog.net](mailto:damog@damog.net)>.
