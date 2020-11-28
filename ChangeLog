@@ -1,3 +1,6 @@
+* 0.10.1 - Sat 28 Nov 2020 06:18:23 PM CET
+  - Fix warning from OpenURI #25
+
 * 0.10 - Sun Jan 13 13:10:49 CET 2019
   - Critical vulnerability fixed due to:
     https://nvd.nist.gov/vuln/detail/CVE-2017-9050
