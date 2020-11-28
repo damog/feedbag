@@ -2,21 +2,21 @@
 
 Gem::Specification.new do |s|
   s.name = %q{feedbag}
-  s.version = "0.10"
+  s.version = "0.10.1"
   s.homepage = "http://github.com/damog/feedbag"
-  s.rubyforge_project = "feedbag"
+  # s.rubyforge_project = "feedbag"
   s.licenses = ["MIT"]
 
   s.authors = ["David Moreno"]
 
-  s.date = %q{2019-01-13}
+  s.date = %q{2020-11-28}
 
   s.description = %q{Ruby's favorite feed auto-discovery tool}
   s.email = %q{damog@damog.net}
 
   s.extra_rdoc_files = ["README.markdown", "COPYING"]
   s.files = ["lib/feedbag.rb", "benchmark/rfeedfinder_benchmark.rb", "bin/feedbag"]
-  s.has_rdoc = true
+  # s.has_rdoc = true
   s.rdoc_options = ["--main", "README.markdown"]
   s.summary = %q{RSS/Atom feed auto-discovery tool}
 
@@ -28,6 +28,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'webmock', '~> 3'
 
   s.bindir = 'bin'
-  s.default_executable = %q{feedbag}
+  # s.default_executable = %q{feedbag}
   s.executables = ["feedbag"]
 end
