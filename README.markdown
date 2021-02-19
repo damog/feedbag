@@ -46,6 +46,15 @@ Feedbag defaults to a User-Agent string of **Feedbag/1.10.2**, however you can o
 => ["http://feeds.kottke.org/main", "http://feeds.kottke.org/json"]
 ````
 
+The other options passed to find, will be passed to OpenURI. For example:
+
+```ruby
+Feedbag.find("https://kottke.org", 'User-Agent' => "My Personal Agent/1.0.1", open_timeout: 1000)
+```
+
+You can find the other options to OpenURI [here](https://rubyapi.org/2.7/o/openuri/openread#method-i-open).
+
+
 ### Why should you use it?
 
 - Because it only uses [Nokogiri](http://nokogiri.org/) as dependency.
