@@ -49,7 +49,7 @@ class Feedbag
 
   def initialize(options: nil)
     @feeds = []
-    @options = options
+    @options = options || {}
     @options["User-Agent"] ||= "Feedbag/#{VERSION}"
     @options[:allow_redirections] ||= :all
   end
