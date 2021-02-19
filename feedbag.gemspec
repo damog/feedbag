@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'shoulda', '~> 3'
   s.add_development_dependency 'mocha', '~> 0.12', '>= 0.12.0'
   s.add_development_dependency 'webmock', '~> 3'
+  s.add_development_dependency 'byebug', '~> 11'
 
   s.bindir = 'bin'
   # s.default_executable = %q{feedbag}
