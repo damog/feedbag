@@ -43,13 +43,15 @@ class Feedbag
     new.feed?(url)
   end
 
-  def self.find(url, args = {})
-    new(user_agent: args['User-Agent']).find(url, **args)
+  def self.find(url, options = {})
+    new(options: options).find(url, **options)
   end
 
-  def initialize(user_agent: nil)
+  def initialize(options: nil)
     @feeds = []
-    @user_agent = user_agent || "Feedbag/#{VERSION}"
+    @options = options
+    @options["User-Agent"] ||= "Feedbag/#{VERSION}"
+    @options[:allow_redirections] ||= :all
   end
 
   def feed?(url)
@@ -69,7 +71,7 @@ class Feedbag
     end
   end
 
-  def find(url, args = {})
+  def find(url, options = {})
     url_uri = URI.parse(url)
     url = nil
     if url_uri.scheme.nil?
@@ -98,7 +100,7 @@ class Feedbag
     end
 
     begin
-      html = URI.open(url, :allow_redirections => :all, "User-Agent" => @user_agent) do |f|
+      html = URI.open(url, **@options) do |f|
         content_type = f.content_type.downcase
         if content_type == "application/octet-stream" # open failed
           content_type = f.meta["content-type"].gsub(/;.*$/, '')
