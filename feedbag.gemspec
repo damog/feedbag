@@ -1,8 +1,10 @@
 # -*- encoding: utf-8 -*-
 
+require_relative "lib/feedbag"
+
 Gem::Specification.new do |s|
   s.name = %q{feedbag}
-  s.version = "0.10.1"
+  s.version = Feedbag::VERSION
   s.homepage = "http://github.com/damog/feedbag"
   # s.rubyforge_project = "feedbag"
   s.licenses = ["MIT"]

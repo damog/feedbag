@@ -28,7 +28,7 @@ require "net/http"
 require "open_uri_redirections"
 
 class Feedbag
-
+  VERSION = '0.10.2'
   CONTENT_TYPES = [
     'application/x.atom+xml',
     'application/atom+xml',
@@ -44,11 +44,12 @@ class Feedbag
   end
 
   def self.find(url, args = {})
-    new.find(url, args = {})
+    new(user_agent: args['User-Agent']).find(url, **args)
   end
 
-  def initialize
+  def initialize(user_agent: nil)
     @feeds = []
+    @user_agent = user_agent || "Feedbag/#{VERSION}"
   end
 
   def feed?(url)
@@ -97,7 +98,7 @@ class Feedbag
     end
 
     begin
-      html = URI.open(url, :allow_redirections => :all) do |f|
+      html = URI.open(url, :allow_redirections => :all, "User-Agent" => @user_agent) do |f|
         content_type = f.content_type.downcase
         if content_type == "application/octet-stream" # open failed
           content_type = f.meta["content-type"].gsub(/;.*$/, '')
