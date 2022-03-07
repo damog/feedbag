@@ -25,7 +25,6 @@ require "rubygems"
 require "nokogiri"
 require "open-uri"
 require "net/http"
-require "open_uri_redirections"
 
 class Feedbag
   VERSION = '0.10.2'
@@ -51,7 +50,6 @@ class Feedbag
     @feeds = []
     @options = options || {}
     @options["User-Agent"] ||= "Feedbag/#{VERSION}"
-    @options[:allow_redirections] ||= :all
   end
 
   def feed?(url)

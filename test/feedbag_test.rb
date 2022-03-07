@@ -57,4 +57,36 @@ class FeedbagTest < Test::Unit::TestCase
     end
   end
 
+  context "Feedbag should send the correct User Agent" do
+    should "send correct user agent" do
+      src = 'test/testcases/json1.html'
+      default_user_agent = "Feedbag/#{Feedbag::VERSION}"
+
+      stub_request(:any, "example3.com").with(headers:{ 'User-Agent' => "Feedbag/#{Feedbag::VERSION}" }).to_return(body: File.new(src), status: 200,  headers: {"Content-Type" => 'text/html'})
+
+      # This request does match the stub with the default User-Agent and should return a result
+      result = Feedbag.find('http://example3.com')
+      assert result.include?('https://blog.booko.com.au/feed/json/')
+
+      # This request does not match the stub using the custom User-Agent 
+      result = Feedbag.find('http://example3.com', 'User-Agent' => "My Personal Agent/1.0.1")
+      assert result.empty?
+
+      stub_request(:any, "example4.com").with(headers:{ 'User-Agent' => "My Personal Agent/1.0.1" }).to_return(body: File.new(src), status: 200,  headers: {"Content-Type" => 'text/html'})
+
+      # This request does not match the stub using the default User-Agent
+      result = Feedbag.find('http://example4.com')
+      assert result.empty?
+
+      # This request does match the stub with a custom User-Agent and should return a result
+      result = Feedbag.find('http://example4.com', 'User-Agent' => "My Personal Agent/1.0.1")
+      assert result.include?('https://blog.booko.com.au/feed/json/')
+    end
+  end
+
+  #context "Feedbag should pass other options to open-uri" do
+  #  should "pass options to open-uri" do
+  #  end
+  #end
+
 end
