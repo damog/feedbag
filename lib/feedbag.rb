@@ -36,6 +36,7 @@ class Feedbag
     'application/rss+xml',
     'application/rdf+xml',
     'application/json',
+    'application/feed+json'
   ].freeze
 
   def self.feed?(url)
