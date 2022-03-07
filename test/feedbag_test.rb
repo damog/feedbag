@@ -57,6 +57,18 @@ class FeedbagTest < Test::Unit::TestCase
     end
   end
 
+  context "Feedbag should follow redirects" do
+    should "follow redirects" do
+      src = 'test/testcases/json1.html'
+
+      stub_request(:any, "example1.com").to_return(status: 301,  headers: {"Location" => "//example2.com", "Content-Type" => "text/html"})
+      stub_request(:any, "example2.com").to_return(body: File.new(src), status: 200,  headers: {"Content-Type" => 'text/html'})
+
+      result = Feedbag.find('http://example1.com')
+      assert result.include?('https://blog.booko.com.au/feed/json/')
+    end
+  end
+
   context "Feedbag should send the correct User Agent" do
     should "send correct user agent" do
       src = 'test/testcases/json1.html'
