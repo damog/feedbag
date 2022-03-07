@@ -52,7 +52,7 @@ The other options passed to find, will be passed to OpenURI. For example:
 Feedbag.find("https://kottke.org", 'User-Agent' => "My Personal Agent/1.0.1", open_timeout: 1000)
 ```
 
-You can find the other options to OpenURI [here](https://rubyapi.org/2.7/o/openuri/openread#method-i-open).
+You can find the other options to OpenURI [here](https://rubyapi.org/o/openuri/openread#method-i-open).
 
 
 ### Why should you use it?
