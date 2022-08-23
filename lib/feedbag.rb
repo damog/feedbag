@@ -25,10 +25,9 @@ require "rubygems"
 require "nokogiri"
 require "open-uri"
 require "net/http"
-require "open_uri_redirections"
 
 class Feedbag
-
+  VERSION = '0.10.2'
   CONTENT_TYPES = [
     'application/x.atom+xml',
     'application/atom+xml',
@@ -44,12 +43,14 @@ class Feedbag
     new.feed?(url)
   end
 
-  def self.find(url, args = {})
-    new.find(url, args = {})
+  def self.find(url, options = {})
+    new(options: options).find(url, **options)
   end
 
-  def initialize
+  def initialize(options: nil)
     @feeds = []
+    @options = options || {}
+    @options["User-Agent"] ||= "Feedbag/#{VERSION}"
   end
 
   def feed?(url)
@@ -69,7 +70,7 @@ class Feedbag
     end
   end
 
-  def find(url, args = {})
+  def find(url, options = {})
     url_uri = URI.parse(url)
     url = nil
     if url_uri.scheme.nil?
@@ -98,7 +99,7 @@ class Feedbag
     end
 
     begin
-      html = URI.open(url, :allow_redirections => :all) do |f|
+      html = URI.open(url, **@options) do |f|
         content_type = f.content_type.downcase
         if content_type == "application/octet-stream" # open failed
           content_type = f.meta["content-type"].gsub(/;.*$/, '')

@@ -29,6 +29,31 @@ You can also use the command line tool for quick queries, if you install the gem
     » feedbag https://www.ruby-lang.org/en/
     == https://www.ruby-lang.org/en/:
     - https://www.ruby-lang.org/en/feeds/news.rss
+    
+
+### Usage
+Feedbag will find all RSS feed types.  Here's an example of finding ATOM and JSON Feed
+
+```ruby
+> Feedbag.find('https://daringfireball.net')
+=> ["https://daringfireball.net/feeds/main", "https://daringfireball.net/feeds/json", "https://daringfireball.net/linked/2021/02/17/bookfeed"]
+```
+
+Feedbag defaults to a User-Agent string of **Feedbag/1.10.2**, however you can override this
+
+```ruby
+0> Feedbag.find('https://kottke.org', 'User-Agent' => "My Personal Agent/1.0.1")
+=> ["http://feeds.kottke.org/main", "http://feeds.kottke.org/json"]
+````
+
+The other options passed to find, will be passed to OpenURI. For example:
+
+```ruby
+Feedbag.find("https://kottke.org", 'User-Agent' => "My Personal Agent/1.0.1", open_timeout: 1000)
+```
+
+You can find the other options to OpenURI [here](https://rubyapi.org/o/openuri/openread#method-i-open).
+
 
 ### Why should you use it?
 

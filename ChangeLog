@@ -1,3 +1,9 @@
+* 0.10.2 - Sat 20 Feb 2021
+  - Pass options through to URI#open to allow setting User-Agent and the various timeout settings
+  - Set a default User-Agent of Feedbag/#{VERSION}
+  - Remove the open uri redirector gem as this functionality is now included natively in open-uri
+  - Add byebug and a bin/console for dev / debug
+
 * 0.10.1 - Sat 28 Nov 2020 06:18:23 PM CET
   - Fix warning from OpenURI #25
 
