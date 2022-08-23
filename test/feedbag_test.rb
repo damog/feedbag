@@ -57,4 +57,13 @@ class FeedbagTest < Test::Unit::TestCase
     end
   end
 
+  context "Feedbag should be able to find URLs with ampersands and plus signs" do
+    setup do
+      @feed = 'https://link.springer.com/search.rss?facet-content-type=Article&amp;facet-journal-id=41116&amp;channel-name=Living+Reviews+in+Solar+Physics'
+    end
+    should "return true" do
+      assert Feedbag.new.looks_like_feed?(@feed)
+    end
+  end
+
 end
