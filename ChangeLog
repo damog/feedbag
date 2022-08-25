@@ -1,3 +1,6 @@
+* 0.10.3 - Thu Aug 25 11:10:13 CEST 2022
+  - No need for puts :)
+
 * 0.10.2 - Sat 20 Feb 2021
   - Pass options through to URI#open to allow setting User-Agent and the various timeout settings
   - Set a default User-Agent of Feedbag/#{VERSION}

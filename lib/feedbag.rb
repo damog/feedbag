@@ -27,7 +27,7 @@ require "open-uri"
 require "net/http"
 
 class Feedbag
-  VERSION = '0.10.2'
+  VERSION = '0.10.3'
   CONTENT_TYPES = [
     'application/x.atom+xml',
     'application/atom+xml',
@@ -168,7 +168,6 @@ class Feedbag
   end
 
   def looks_like_feed?(url)
-	puts url
     if url =~ /(\.(rdf|xml|rss)(\?([\w'\-%]?(=[\w'\-%.]*)?(&|#|\+|\;)?)+)?(:[\w'\-%]+)?$|feed=(rss|atom)|(atom|feed)\/?$)/i
       true
     else
