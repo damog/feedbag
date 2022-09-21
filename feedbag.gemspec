@@ -6,13 +6,8 @@ Gem::Specification.new do |s|
   s.name = %q{feedbag}
   s.version = Feedbag::VERSION
   s.homepage = "http://github.com/damog/feedbag"
-  # s.rubyforge_project = "feedbag"
   s.licenses = ["MIT"]
-
   s.authors = ["David Moreno"]
-
-  s.date = %q{2020-11-28}
-
   s.description = %q{Ruby's favorite feed auto-discovery tool}
   s.email = %q{damog@damog.net}
 
@@ -32,6 +27,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'test-unit'
 
   s.bindir = 'bin'
-  # s.default_executable = %q{feedbag}
   s.executables = ["feedbag"]
 end
