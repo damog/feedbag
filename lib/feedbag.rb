@@ -8,7 +8,7 @@ require "open-uri"
 require "net/http"
 
 class Feedbag
-  VERSION = '0.10.3'
+  VERSION = '1.0.0'
   CONTENT_TYPES = [
     'application/x.atom+xml',
     'application/atom+xml',
