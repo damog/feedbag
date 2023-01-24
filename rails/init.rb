@@ -1,1 +1,3 @@
-require File.join File.dirname(__FILE__), "..", "lib", "feedbag"
+# frozen_string_literal: true
+
+require File.join File.dirname(__FILE__), '..', 'lib', 'feedbag'
