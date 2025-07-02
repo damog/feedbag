@@ -1,0 +1,686 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 02 Jul 2025 15:32:06 GMT
+Content-Type: application/rss+xml; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Strict-Transport-Security: max-age=31536000
+Vary: Accept-Encoding
+Host-Header: WordPress.com
+Vary: accept, content-type
+Last-Modified: Wed, 02 Jul 2025 13:58:03 GMT
+X-nc: HIT dca 56
+X-ac: 4.ams _dca BYPASS
+Server-Timing: a8c-cdn, dc;desc=ams, cache;desc=BYPASS;dur=95.0
+Alt-Svc: h3=":443"; ma=86400
+
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>Special Mom’s blog</title>
+	<atom:link href="https://specialmomsblog.mom/feed/" rel="self" type="application/rss+xml" />
+	<link>https://specialmomsblog.mom</link>
+	<description>Special needs family and trying to be positive as we live through our daily struggles!❤️</description>
+	<lastBuildDate>Tue, 01 Jul 2025 23:35:05 +0000</lastBuildDate>
+	<language>en</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+
+<image>
+	<url>https://specialmomsblog.mom/wp-content/uploads/2023/02/image.jpg?w=32</url>
+	<title>Special Mom’s blog</title>
+	<link>https://specialmomsblog.mom</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+<cloud domain='specialmomsblog.mom' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<atom:link rel="search" type="application/opensearchdescription+xml" href="https://specialmomsblog.mom/osd.xml" title="Special Mom’s blog" />
+	<atom:link rel='hub' href='https://specialmomsblog.mom/?pushpress=hub'/>
+	<item>
+		<title>What to cook?</title>
+		<link>https://specialmomsblog.mom/2025/07/01/what-to-cook/</link>
+					<comments>https://specialmomsblog.mom/2025/07/01/what-to-cook/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Tue, 01 Jul 2025 23:35:05 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1986]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/07/01/what-to-cook/</guid>
+
+					<description><![CDATA[What are you most worried about for the future? I have ton of things to worry about the future! Don’t we all! But the one that I most worry about is menu planning for the next day 🙂! With different taste buds in my family that is not an easy task and sometimes I may [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/07/01/what-to-cook/feed/</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/07/img_3390.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/07/img_3388.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Sundry items</title>
+		<link>https://specialmomsblog.mom/2025/07/01/sundry-items/</link>
+					<comments>https://specialmomsblog.mom/2025/07/01/sundry-items/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Tue, 01 Jul 2025 02:44:11 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[parenting]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/?p=7805</guid>
+
+					<description><![CDATA[I got this plant during St Patricks Day Bingo at my son’s program. Oh boy! It was so hard to bring the plant to this level and not kill it. Touchwood! Last time my bunnies ate it and this time the cold frost and rain made it sick. Finally it is trying to survive. Now [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/07/01/sundry-items/feed/</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+		
+		<media:thumbnail url="https://specialmomsblog.mom/wp-content/uploads/2025/07/img_3379-1.jpg" />
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/07/img_3379-1.jpg" medium="image">
+			<media:title type="html">img_3379-1</media:title>
+		</media:content>
+
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/07/img_3379.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/07/image.jpg?w=1024" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/07/img_3372-1.png?w=473" medium="image" />
+	</item>
+		<item>
+		<title>Vacation memories</title>
+		<link>https://specialmomsblog.mom/2025/06/30/vacation-memories/</link>
+					<comments>https://specialmomsblog.mom/2025/06/30/vacation-memories/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Mon, 30 Jun 2025 01:56:55 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[parenting]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/?p=7799</guid>
+
+					<description><![CDATA[It’s the last day of June. Summer is officially here. Early morning walk in my backyard always brings me memories of my childhood vacation. The air smells so similar to the one during my vacation and memories keep flowing. Every year, April and May our summer vacation would be spent at my maternal grandparents’ home [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/30/vacation-memories/feed/</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/image-10.jpg?w=899" medium="image" />
+	</item>
+		<item>
+		<title>Test of endurance done!</title>
+		<link>https://specialmomsblog.mom/2025/06/28/test-of-endurance-done/</link>
+					<comments>https://specialmomsblog.mom/2025/06/28/test-of-endurance-done/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Sat, 28 Jun 2025 02:47:14 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<category><![CDATA[travel]]></category>
+		<category><![CDATA[WCS]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/?p=7795</guid>
+
+					<description><![CDATA[My cappuccino cup had another purpose this week! It was super hot and my cold carrot kheer (milk), tasted so good in it! Who knew a cube of ice would give so much taste! Yes, not a coffee week. I did write during my week of a puzzle project that was messed up by my [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/28/test-of-endurance-done/feed/</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+		
+		<media:thumbnail url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3331-1.jpg" />
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3331-1.jpg" medium="image">
+			<media:title type="html">img_3331-1</media:title>
+		</media:content>
+
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3331.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3336.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3344.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3329.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3328.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Reducing my carbon footprint!</title>
+		<link>https://specialmomsblog.mom/2025/06/27/reducing-my-carbon-footprint/</link>
+					<comments>https://specialmomsblog.mom/2025/06/27/reducing-my-carbon-footprint/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Fri, 27 Jun 2025 11:30:33 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1982]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/27/reducing-my-carbon-footprint/</guid>
+
+					<description><![CDATA[Are there things you try to practice daily to live a more sustainable lifestyle? I had to read other bloggers’ responses to understand the prompt! We do recycle in our home and my husband tries to see we do not waste electricity or water. I would say he polices that! I cook lot of my [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/27/reducing-my-carbon-footprint/feed/</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/fb0dc100-b85c-42cc-b032-c977221b7fea-37788-00000aa3b3cd33ae_file.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/9492e2e1-03f7-4019-8f3b-de3bddacbf3a-37788-00000aa3b4092782_file.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/b3d9917a-afb8-47ef-9135-31c9a32a0b4d-37788-00000aa3b4437c3c_file.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/9349f740-13be-47d1-b1ca-35ddfef7a43f-37788-00000aa3b47cad68_file.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Bramhopadesham a reblog</title>
+		<link>https://specialmomsblog.mom/2025/06/26/bramhopadesham-a-reblog/</link>
+					<comments>https://specialmomsblog.mom/2025/06/26/bramhopadesham-a-reblog/#respond</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Thu, 26 Jun 2025 19:19:45 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[hinduism]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[parenting]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/26/bramhopadesham-a-reblog/</guid>
+
+					<description><![CDATA[I wrote about endurance yesterday and yes we are still working on that puzzle. In our journey of autism we crossed a milestone for my son and it was his Bramhopadesham. I am just posting the link to the same. Brahmopadesham I wrote this 3 years ago and my feelings are still the same. Somehow [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/26/bramhopadesham-a-reblog/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/26a06d9c-cdda-46bd-b9ad-883b6de15c56-35307-000009bb5844ab88_file.jpg?w=1024" medium="image" />
+	</item>
+		<item>
+		<title>A test of endurance.</title>
+		<link>https://specialmomsblog.mom/2025/06/26/a-test-of-endurance/</link>
+					<comments>https://specialmomsblog.mom/2025/06/26/a-test-of-endurance/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Thu, 26 Jun 2025 01:15:47 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[parenting]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/?p=7771</guid>
+
+					<description><![CDATA[I talk about endurance a lot. Taking care of my special man, I have been able to tackle a ton of endurance to so many things in life. My pain level is also high. But today I felt I have been put to a test and the result would be known only tomorrow. We decided [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/26/a-test-of-endurance/feed/</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/image-9.jpg?w=1024" medium="image" />
+	</item>
+		<item>
+		<title>Spirituality and situations</title>
+		<link>https://specialmomsblog.mom/2025/06/25/spirituality-and-situations/</link>
+					<comments>https://specialmomsblog.mom/2025/06/25/spirituality-and-situations/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Wed, 25 Jun 2025 00:13:59 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1979]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/25/spirituality-and-situations/</guid>
+
+					<description><![CDATA[How important is spirituality in your life? I am a spiritual person. When in Grand Canyon West Rim last year, even without second thought I chanted the entire Hanuman Chalisa. Native Americans consider Grand Canyon very holy and I felt that energy. I am lucky in one way my husband is spiritual too. But that [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/25/spirituality-and-situations/feed/</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/8b011277-b3cf-4761-8214-fdcb28f93724-27611-000007801e342640_file.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/18f796ce-3870-4077-8b2d-eea48b175924-27611-00000780553308eb_file.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>It was kind of like a snow day for me! 😀</title>
+		<link>https://specialmomsblog.mom/2025/06/24/it-was-kind-of-like-a-snow-day-for-me-%f0%9f%98%80/</link>
+					<comments>https://specialmomsblog.mom/2025/06/24/it-was-kind-of-like-a-snow-day-for-me-%f0%9f%98%80/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Tue, 24 Jun 2025 01:47:22 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1978]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/?p=7763</guid>
+
+					<description><![CDATA[How do you practice self-care? Few days back I wrote a post on “things that are therapeutic “, thanks to my friends who pinged with suggestions. Love them all and even my dad did comment on my facebook page saying for him watching a train was therapeutic! Isn’t that all self care? The weekend was [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/24/it-was-kind-of-like-a-snow-day-for-me-%f0%9f%98%80/feed/</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3302.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/ade4b4e9-fbcd-4652-bdc0-1026850571d9-24184-000006698932e2a9_file.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Sunday night musings</title>
+		<link>https://specialmomsblog.mom/2025/06/23/sunday-night-musings/</link>
+					<comments>https://specialmomsblog.mom/2025/06/23/sunday-night-musings/#respond</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2025 01:17:17 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1977]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/23/sunday-night-musings/</guid>
+
+					<description><![CDATA[How do you waste the most time every day? I wrote for this prompt last year same time around. The answer remains thr same. Scrolling through the phone! In fact many people mention they spend a lot of time waste scrolling! Time is money applies great in this context. We watch shorts or reels and [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/23/sunday-night-musings/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3286.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3251.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Light at the end of the tunnel</title>
+		<link>https://specialmomsblog.mom/2025/06/22/light-at-the-end-of-the-tunnel/</link>
+					<comments>https://specialmomsblog.mom/2025/06/22/light-at-the-end-of-the-tunnel/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Sun, 22 Jun 2025 00:20:40 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<category><![CDATA[trails]]></category>
+		<category><![CDATA[travel]]></category>
+		<category><![CDATA[WCS]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/?p=7758</guid>
+
+					<description><![CDATA[It was a busy week. A visit to an art show, the movie theater and catching up inside the gym. I was eagerly waiting for Saturday to roll in, not to sleep in but to check off on a bucket list item. It was time to take our new family member Bucee out of my [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/22/light-at-the-end-of-the-tunnel/feed/</wfw:commentRss>
+			<slash:comments>13</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3167.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3294.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3289.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3273.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3248.jpg?w=1024" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_0884.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Coconut gravies</title>
+		<link>https://specialmomsblog.mom/2025/06/21/coconut-gravies/</link>
+					<comments>https://specialmomsblog.mom/2025/06/21/coconut-gravies/#respond</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Sat, 21 Jun 2025 13:01:04 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1976]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/21/coconut-gravies/</guid>
+
+					<description><![CDATA[Which food, when you eat it, instantly transports you to childhood? Yesterday I was talking to some friends. They were surprised about the number of languages spoken in India. Being bilingual is very common in India. With so many languages, the dialect is also different amongst various regions. Anyhow food habits too change. Me and [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/21/coconut-gravies/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/f5e60655-abe2-4f22-825d-5232cadbee0f-12399-00000344bdd50da3_file.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Favorite historical figure?</title>
+		<link>https://specialmomsblog.mom/2025/06/20/favorite-historical-figure/</link>
+					<comments>https://specialmomsblog.mom/2025/06/20/favorite-historical-figure/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Fri, 20 Jun 2025 12:32:04 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1975]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/20/favorite-historical-figure/</guid>
+
+					<description><![CDATA[Who is your favorite historical figure? I do not want to write about someone I have never met. Historical perspective changes and if I said “X” was my role model, another view point can negate my feelings. I am going to talk about a very simple person. I am not going to call her my [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/20/favorite-historical-figure/feed/</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>When I say therapeutic!</title>
+		<link>https://specialmomsblog.mom/2025/06/20/when-i-say-therapeutic/</link>
+					<comments>https://specialmomsblog.mom/2025/06/20/when-i-say-therapeutic/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Fri, 20 Jun 2025 00:58:09 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[parenting]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/?p=7745</guid>
+
+					<description><![CDATA[Gardening is therapeutic, being near a water source is therapeutic, listening to soothing music is therapeutic, these are a few I have mentioned in my blogs that I use for my young man. In this day and age of advanced meds, life span of a human has definitely increased. But many say the quality of [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/20/when-i-say-therapeutic/feed/</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+		
+		<media:thumbnail url="https://specialmomsblog.mom/wp-content/uploads/2025/06/image-1-1.jpg" />
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/image-1-1.jpg" medium="image">
+			<media:title type="html">image-1</media:title>
+		</media:content>
+
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/image-8.jpg?w=825" medium="image" />
+	</item>
+		<item>
+		<title>A crush?</title>
+		<link>https://specialmomsblog.mom/2025/06/19/a-crush/</link>
+					<comments>https://specialmomsblog.mom/2025/06/19/a-crush/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Thu, 19 Jun 2025 12:28:48 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1974]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/19/a-crush/</guid>
+
+					<description><![CDATA[Write about your first crush. Movie stars and sports players were my crush while growing up! Ha ha, my grandma was strict and looking at a boy was not something I was allowed 😀! Anyhow when my husband mentioned the 1983 World cup win by the Indian cricket team, my thoughts went to Kapil Dev! [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/19/a-crush/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/8b4b6961-f292-4be4-aaba-2063f5596da7-1107-0000010d0d2f1f48_file.jpg?w=473" medium="image" />
+	</item>
+		<item>
+		<title>Nothing checked off the bucket list, yet,</title>
+		<link>https://specialmomsblog.mom/2025/06/18/nothing-checked-off-the-bucket-list-yet/</link>
+					<comments>https://specialmomsblog.mom/2025/06/18/nothing-checked-off-the-bucket-list-yet/#respond</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Wed, 18 Jun 2025 10:23:43 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1973]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[parenting]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/18/nothing-checked-off-the-bucket-list-yet/</guid>
+
+					<description><![CDATA[What countries do you want to visit? The same prompt showed up last year this date and here is the link to it. A bucket list of&#160;countries I have not checked off any country from the list which included Isreal, Egypt, Italy , Singapore and Scotland. But we did visit India last year after a [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/18/nothing-checked-off-the-bucket-list-yet/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/32e14595-ef0c-453f-bad1-c7600fbe9d6b-65165-00000eec7b998233_file.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/1c7e1e2c-e884-4425-a102-fe9e46821ddd-65165-00000eecf7988b4a_file.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Boasting 😀</title>
+		<link>https://specialmomsblog.mom/2025/06/17/boasting-%f0%9f%98%80/</link>
+					<comments>https://specialmomsblog.mom/2025/06/17/boasting-%f0%9f%98%80/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Tue, 17 Jun 2025 11:37:03 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1972]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/17/boasting-%f0%9f%98%80/</guid>
+
+					<description><![CDATA[What’s your favorite thing about yourself? What am I going to get for boasting about myself?😀 I love that I overthink and plan too much. It really irritates others yet I continue to do that. But it does result in my days being smooth. I am not a perfectionist. I don’t care if kids cause [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/17/boasting-%f0%9f%98%80/feed/</wfw:commentRss>
+			<slash:comments>13</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_2946.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Retirement me?</title>
+		<link>https://specialmomsblog.mom/2025/06/16/retirement-me/</link>
+					<comments>https://specialmomsblog.mom/2025/06/16/retirement-me/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Mon, 16 Jun 2025 14:10:37 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1971]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/16/retirement-me/</guid>
+
+					<description><![CDATA[How do you want to retire? For many years now, from the birth of my first child I have been a home maker. I transitioned into a CEO of the my son’s every day living and now I formally work with him too. There is no retirement for me. It is me and him death [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/16/retirement-me/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/03f976f2-c9b1-4c74-8a67-4ab16360fdfc-56051-00000caa5f80aef5_file.jpg?w=768" medium="image" />
+	</item>
+		<item>
+		<title>Father’s Day and Waterfall Trail</title>
+		<link>https://specialmomsblog.mom/2025/06/15/fathers-day-and-waterfall-trail/</link>
+					<comments>https://specialmomsblog.mom/2025/06/15/fathers-day-and-waterfall-trail/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Sun, 15 Jun 2025 23:39:34 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[dailyprompt]]></category>
+		<category><![CDATA[dailyprompt-1970]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[parenting]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<category><![CDATA[trails]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/15/fathers-day-and-waterfall-trail/</guid>
+
+					<description><![CDATA[What’s the oldest thing you own that you still use daily? We live in a house built in the early seventies. The house is a work in progress and we keep changing things! We have changed everything except the stove! Hint to my husband 😀! Yup and I use that every day! Okay, today was [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/15/fathers-day-and-waterfall-trail/feed/</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+		
+		<media:thumbnail url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3144.jpg" />
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3144.jpg" medium="image">
+			<media:title type="html">img_3144</media:title>
+		</media:content>
+
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3132.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3137.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3144.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3147.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3148.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3149.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/image-7.jpg?w=923" medium="image" />
+	</item>
+		<item>
+		<title>A long day was it today!</title>
+		<link>https://specialmomsblog.mom/2025/06/14/a-long-day-was-it-today/</link>
+					<comments>https://specialmomsblog.mom/2025/06/14/a-long-day-was-it-today/#comments</comments>
+		
+		<dc:creator><![CDATA[ganga1996]]></dc:creator>
+		<pubDate>Sat, 14 Jun 2025 23:59:34 +0000</pubDate>
+				<category><![CDATA[2025]]></category>
+		<category><![CDATA[autism]]></category>
+		<category><![CDATA[family]]></category>
+		<category><![CDATA[life]]></category>
+		<category><![CDATA[parenting]]></category>
+		<category><![CDATA[positivity]]></category>
+		<category><![CDATA[specialneeds]]></category>
+		<category><![CDATA[trails]]></category>
+		<guid isPermaLink="false">http://specialmomsblog.mom/2025/06/14/a-long-day-was-it-today/</guid>
+
+					<description><![CDATA[My boy played his keyboard at the temple today and sang a small piece too. It was Purandara dasa day and local talents were given five minute slots to showcase their talents. All the hardwork we do at home was put in front of an audience. This is not his first rodeo, he had done [&#8230;]]]></description>
+		
+					<wfw:commentRss>https://specialmomsblog.mom/2025/06/14/a-long-day-was-it-today/feed/</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+		
+		<media:thumbnail url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3120.jpg" />
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/img_3120.jpg" medium="image">
+			<media:title type="html">img_3120</media:title>
+		</media:content>
+
+		<media:content url="https://2.gravatar.com/avatar/e6f4bec62488f7ecee099337f74abd87c98732576d7bb03be719678a16ab0bbc?s=96&#38;d=identicon&#38;r=G" medium="image">
+			<media:title type="html">ganga1996</media:title>
+		</media:content>
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/c26e5171-45f6-46c6-929d-f64b85ee671a-48385-00000af43bba2277_file.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/5b156c36-07c8-4c28-9767-809093e6c3e8-48385-00000af48f6cd228_file.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/070cd217-0776-49f9-8e04-bd41bd905c79-48385-00000af4c4fb750b_file.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/a0aabf98-90e3-458c-97a3-b566521a7c9d-48385-00000af4e67785ca_file.jpg?w=768" medium="image" />
+
+		<media:content url="https://specialmomsblog.mom/wp-content/uploads/2025/06/image-6.jpg?w=923" medium="image" />
+	</item>
+	</channel>
+</rss>

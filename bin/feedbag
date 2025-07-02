@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require "rubygems"
 require "feedbag"
 
 def usage
-  %Q{
-    #{$0} <url 1> [<url 2> <url 3> ... <url n>]
-  }
+  %(
+    #{$PROGRAM_NAME} <url 1> [<url 2> <url 3> ... <url n>]
+  )
 end
 
 if ARGV.empty?
@@ -25,4 +26,3 @@ ARGV.each do |url|
     end
   end
 end
-
