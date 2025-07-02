@@ -24,7 +24,7 @@ class FeedbagTest < Test::Unit::TestCase
 
   context "Feedbag find should discover feeds containing atom:link" do
     setup do
-      @feeds = ['http://jenniferlynch.wordpress.com/feed', 'http://lurenbijdeburen.wordpress.com/feed']
+      @feeds = ['https://specialmomsblog.mom/feed', 'http://lurenbijdeburen.wordpress.com/feed']
     end
     should "find atom feed" do
       @feeds.each do |url|
