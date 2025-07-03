@@ -2,7 +2,6 @@ HTTP/1.1 200 OK
 Server: nginx
 Date: Wed, 02 Jul 2025 15:35:16 GMT
 Content-Type: application/rss+xml; charset=UTF-8
-Transfer-Encoding: chunked
 Connection: keep-alive
 Vary: Accept-Encoding
 Host-Header: WordPress.com

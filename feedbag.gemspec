@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.summary = "RSS/Atom feed auto-discovery tool"
 
   gem.add_dependency "nokogiri", "~> 1.8", ">= 1.8.18"
+  gem.add_dependency "async-http", ">= 0.89"
 
   gem.required_ruby_version = ">= 3.0"
   gem.bindir = "bin"

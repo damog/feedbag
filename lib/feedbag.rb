@@ -4,8 +4,18 @@
 # See COPYING before using this software.
 
 require "nokogiri"
-require "open-uri"
-require "net/http"
+require "async/http/internet/instance"
+require "async/http/middleware/location_redirector"
+
+class AsyncInternetWithRedirect < Async::HTTP::Internet
+  protected
+
+    def make_client(endpoint)
+      ::Protocol::HTTP::AcceptEncoding.new(
+        Async::HTTP::Middleware::LocationRedirector.new(Async::HTTP::Client.new(endpoint, **@options))
+      )
+    end
+end
 
 class Feedbag
   VERSION = "2.0.0"
@@ -40,6 +50,7 @@ class Feedbag
     @options["User-Agent"] ||= "Feedbag/#{VERSION}"
   end
 
+  FEED_SCHEME_RE = %r{^feed://}
   def feed?(url)
     # use LWR::Simple.normalize some time
     url_uri = URI.parse(url)
@@ -47,19 +58,22 @@ class Feedbag
     url << "?#{url_uri.query}" if url_uri.query
 
     # hack:
-    url.sub!(%r{^feed://}, "http://")
+    url.sub!(FEED_SCHEME_RE, "http://")
 
     res = Feedbag.find(url)
     (res.size == 1) && (res.first == url)
   end
 
+  XML_RE = /.xml$/
+  SERVICE_FEED_XPATH = "//link[@rel='alternate' or @rel='service.feed'][@href][@type]"
+  JSON_FEED_XPATH = "//link[@rel='alternate' and @type='application/json'][@href]"
   def find(url, _options = {})
     url_uri = URI.parse(url)
     url = nil
     if url_uri.scheme.nil?
       url = "http://#{url_uri}"
     elsif url_uri.scheme == "feed"
-      return add_feed(url_uri.to_s.sub(%r{^feed://}, "http://"), nil)
+      return add_feed(url_uri.to_s.sub(FEED_SCHEME_RE, "http://"), nil)
     else
       url = url_uri.to_s
     end
@@ -82,12 +96,14 @@ class Feedbag
     end
 
     begin
-      URI.open(url, **@options) do |f|
-        content_type = f.content_type.downcase
-        content_type = f.meta["content-type"].gsub(/;.*$/, "") if content_type == "application/octet-stream" # open failed
-        return add_feed(url, nil) if CONTENT_TYPES.include?(content_type)
+      headers = @options.slice("User-Agent")
+      Sync do
+        response = AsyncInternetWithRedirect.get(url, headers)
 
-        doc = Nokogiri::HTML(f.read)
+        content_type = response.headers["content-type"].gsub(/;.*$/, "").downcase
+        next add_feed(url, nil) if CONTENT_TYPES.include?(content_type)
+
+        doc = Nokogiri::HTML(response.read)
 
         @base_uri = (doc.at("base")["href"] if doc.at("base") && doc.at("base")["href"])
 
@@ -98,11 +114,11 @@ class Feedbag
           add_feed(l["href"], url, @base_uri) if l["type"] && CONTENT_TYPES.include?(l["type"].downcase.strip) && (l["rel"].downcase == "self")
         end
 
-        doc.xpath("//link[@rel='alternate' or @rel='service.feed'][@href][@type]").each do |l|
+        doc.xpath(SERVICE_FEED_XPATH).each do |l|
           add_feed(l["href"], url, @base_uri) if CONTENT_TYPES.include?(l["type"].downcase.strip)
         end
 
-        doc.xpath("//link[@rel='alternate' and @type='application/json'][@href]").each do |e|
+        doc.xpath(JSON_FEED_XPATH).each do |e|
           add_feed(e["href"], url, @base_uri) if looks_like_feed?(e["href"])
         end
 
@@ -117,23 +133,21 @@ class Feedbag
         end
 
         # Added support for feeds like http://tabtimes.com/tbfeed/mashable/full.xml
-        add_feed(url, nil) if url.match(/.xml$/) && doc.root && doc.root["xml:base"] && (doc.root["xml:base"].strip == url.strip)
+        add_feed(url, nil) if url.match(XML_RE) && doc.root && doc.root["xml:base"] && (doc.root["xml:base"].strip == url.strip)
+      ensure
+        response&.close
       end
     rescue Timeout::Error => e
       warn "Timeout error occurred with `#{url}: #{e}'"
-    rescue OpenURI::HTTPError => e
-      warn "Error occurred with `#{url}': #{e}"
-    rescue SocketError => e
-      warn "Socket error occurred with: `#{url}': #{e}"
     rescue => e
       warn "#{e.class} error occurred with: `#{url}': #{e.message}"
-    ensure
-      return @feeds
     end
+    return @feeds
   end
 
+  FEED_RE = %r{(\.(rdf|xml|rss)(\?([\w'\-%]?(=[\w'\-%.]*)?(&|#|\+|;)?)+)?(:[\w'\-%]+)?$|feed=(rss|atom)|(atom|feed)/?$)}i
   def looks_like_feed?(url)
-    %r{(\.(rdf|xml|rss)(\?([\w'\-%]?(=[\w'\-%.]*)?(&|#|\+|;)?)+)?(:[\w'\-%]+)?$|feed=(rss|atom)|(atom|feed)/?$)}i.match?(url)
+    FEED_RE.match?(url)
   end
 
   def add_feed(feed_url, orig_url, base_uri = nil)
@@ -157,19 +171,7 @@ class Feedbag
     end
 
     # verify url is really valid
-    @feeds.push(url) unless @feeds.include?(url) # if self._is_http_valid(URI.parse(url), orig_url)
-  end
-
-  # not used. yet.
-  def _is_http_valid(uri, orig_url)
-    req = Net::HTTP.get_response(uri)
-    URI.parse(orig_url)
-    case req
-    when Net::HTTPSuccess
-      true
-    else
-      false
-    end
+    @feeds.push(url) unless @feeds.include?(url)
   end
 end
 

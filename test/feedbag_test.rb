@@ -70,8 +70,8 @@ class FeedbagTest < Test::Unit::TestCase
     should "follow redirects" do
       src = "test/testcases/json1.html"
 
-      stub_request(:any, "example1.com").to_return(status: 301, headers: { "Location" => "//example2.com", "Content-Type" => "text/html" })
-      stub_request(:any, "example2.com").to_return(body: File.new(src), status: 200,  headers: { "Content-Type" => "text/html" })
+      stub_request(:any, "example1.com").to_return(status: 301, headers: { "Location" => "/feed2", "Content-Type" => "text/html" })
+      stub_request(:get, "example1.com/feed2").to_return(body: File.new(src), status: 200,  headers: { "Content-Type" => "text/html" })
 
       result = Feedbag.find("http://example1.com")
 
@@ -90,19 +90,20 @@ class FeedbagTest < Test::Unit::TestCase
 
       assert_includes result, "https://blog.booko.com.au/feed/json/"
 
-      stub_request(:any, "example3.com").to_return(body: "Not found", status: 404, headers: { "Content-Type" => "text/html" })
+      stub_request(:any, "example3.com").to_return(body: "", status: 200, headers: { "Content-Type" => "text/html" })
       # This request does not match the stub using the custom User-Agent
       result = Feedbag.find("http://example3.com", "User-Agent" => "My Personal Agent/1.0.1")
 
       assert_empty result
 
-      stub_request(:any, "example4.com").with(headers: { "User-Agent" => "My Personal Agent/1.0.1" }).to_return(body: File.new(src), status: 200, headers: { "Content-Type" => "text/html" })
+      stub_request(:any, "example4.com").to_return(body: "", status: 200, headers: { "Content-Type" => "text/html" })
 
       # This request does not match the stub using the default User-Agent
       result = Feedbag.find("http://example4.com")
 
       assert_empty result
 
+      stub_request(:any, "example4.com").with(headers: { "User-Agent" => "My Personal Agent/1.0.1" }).to_return(body: File.new(src), status: 200, headers: { "Content-Type" => "text/html" })
       # This request does match the stub with a custom User-Agent and should return a result
       result = Feedbag.find("http://example4.com", "User-Agent" => "My Personal Agent/1.0.1")
 
