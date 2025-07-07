@@ -1,55 +1,54 @@
-Feedbag
+Async-Feedbag
 =======
 
-Feedbag is Ruby's favorite auto-discovery tool/library!
+Async-Feedbag is a fork of Ruby's favorite auto-discovery tool/library, using [async-http](https://github.com/socketry/async-http) for the requests.
 
 ### Quick synopsis
 
 ```ruby
->> require "feedbag"
+>> require "async-feedbag"
 => true
->> Feedbag.find "damog.net/blog"
+>> AsyncFeedbag.find "damog.net/blog"
 => ["http://damog.net/blog/atom.xml"]
->> Feedbag.feed? "perl.org"
+>> AsyncFeedbag.feed? "perl.org"
 => false
->> Feedbag.feed?("https://m.signalvnoise.com/feed")
+>> AsyncFeedbag.feed?("https://m.signalvnoise.com/feed")
 => true
 ```
 
 ### Installation
 
-    $ gem install feedbag
+    $ gem install async-feedbag
 
-Or just grab feedbag.rb and use it on your own project:
+Or just grab async-feedbag.rb and use it on your own project:
 
-    $ wget https://raw.githubusercontent.com/damog/feedbag/master/lib/feedbag.rb
+    $ wget https://raw.githubusercontent.com/renatolond/feedbag/main/lib/async-feedbag.rb
 
 You can also use the command line tool for quick queries, if you install the gem:
 
     » feedbag https://www.ruby-lang.org/en/
     == https://www.ruby-lang.org/en/:
     - https://www.ruby-lang.org/en/feeds/news.rss
-    
 
 ### Usage
 Feedbag will find all RSS feed types.  Here's an example of finding ATOM and JSON Feed
 
 ```ruby
-> Feedbag.find('https://daringfireball.net')
+> AsyncFeedbag.find('https://daringfireball.net')
 => ["https://daringfireball.net/feeds/main", "https://daringfireball.net/feeds/json", "https://daringfireball.net/linked/2021/02/17/bookfeed"]
 ```
 
-Feedbag defaults to a User-Agent string of **Feedbag/1.10.2**, however you can override this
+Feedbag defaults to a User-Agent string of **AsyncFeedbag/1.10.2**, however you can override this
 
 ```ruby
-0> Feedbag.find('https://kottke.org', 'User-Agent' => "My Personal Agent/1.0.1")
+0> AsyncFeedbag.find('https://kottke.org', 'User-Agent' => "My Personal Agent/1.0.1")
 => ["http://feeds.kottke.org/main", "http://feeds.kottke.org/json"]
 ````
 
 The other options passed to find, will be passed to OpenURI. For example:
 
 ```ruby
-Feedbag.find("https://kottke.org", 'User-Agent' => "My Personal Agent/1.0.1", open_timeout: 1000)
+AsyncFeedbag.find("https://kottke.org", 'User-Agent' => "My Personal Agent/1.0.1", open_timeout: 1000)
 ```
 
 You can find the other options to OpenURI [here](https://rubyapi.org/o/openuri/openread#method-i-open).
@@ -64,7 +63,8 @@ You can find the other options to OpenURI [here](https://rubyapi.org/o/openuri/o
 
 ### Author
 
-[David Moreno](http://damog.net/) <[damog@damog.net](mailto:damog@damog.net)>.
+[David Moreno](http://damog.net/) <[damog@damog.net](mailto:damog@damog.net)> is the original author of [feedbag](https://github.com/damog/feedbag).
+[Renato "Lond" Cerqueira](https://lond.com.br) is the author of the async fork.
 
 ### Donations
 
@@ -74,4 +74,4 @@ You can find the other options to OpenURI [here](https://rubyapi.org/o/openuri/o
 
 ### Copyright
 
-This is and will always be free software. See [COPYING](https://raw.githubusercontent.com/damog/feedbag/master/COPYING) for more information.
+This is and will always be free software. See [COPYING](https://raw.githubusercontent.com/renatolond/feedbag/master/COPYING) for more information.

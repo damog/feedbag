@@ -17,7 +17,7 @@ class AsyncInternetWithRedirect < Async::HTTP::Internet
     end
 end
 
-class Feedbag
+class AsyncFeedbag
   VERSION = "2.0.0"
   CONTENT_TYPES = [
     "application/x.atom+xml",
@@ -47,7 +47,7 @@ class Feedbag
   def initialize(options: nil)
     @feeds = []
     @options = options || {}
-    @options["User-Agent"] ||= "Feedbag/#{VERSION}"
+    @options["User-Agent"] ||= "AsyncFeedbag/#{VERSION}"
   end
 
   FEED_SCHEME_RE = %r{^feed://}
@@ -60,9 +60,11 @@ class Feedbag
     # hack:
     url.sub!(FEED_SCHEME_RE, "http://")
 
-    res = Feedbag.find(url)
+    res = AsyncFeedbag.find(url)
     (res.size == 1) && (res.first == url)
   end
+
+  RedirectionError = Class.new(StandardError)
 
   XML_RE = /.xml$/
   SERVICE_FEED_XPATH = "//link[@rel='alternate' or @rel='service.feed'][@href][@type]"
@@ -77,7 +79,6 @@ class Feedbag
     else
       url = url_uri.to_s
     end
-    # url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
 
     # check if feed_valid is avail
     begin
@@ -95,10 +96,19 @@ class Feedbag
       warn "#{e.class} error occurred with: `#{url}': #{e.message}"
     end
 
+    retries = 2
     begin
       headers = @options.slice("User-Agent")
       Sync do
         response = AsyncInternetWithRedirect.get(url, headers)
+        if response.redirection?
+          original_uri = URI.parse(url)
+          uri = URI.parse(response.headers["location"])
+          if uri.host == original_uri.host
+            url = response.headers["location"]
+            raise RedirectionError
+          end
+        end
 
         content_type = response.headers["content-type"].gsub(/;.*$/, "").downcase
         next add_feed(url, nil) if CONTENT_TYPES.include?(content_type)
@@ -137,6 +147,9 @@ class Feedbag
       ensure
         response&.close
       end
+    rescue RedirectionError
+      retries -= 1
+      retry if retries >= 0
     rescue Timeout::Error => e
       warn "Timeout error occurred with `#{url}: #{e}'"
     rescue => e
@@ -151,11 +164,9 @@ class Feedbag
   end
 
   def add_feed(feed_url, orig_url, base_uri = nil)
-    # puts "#{feed_url} - #{orig_url}"
     url = feed_url.sub(/^feed:/, "").strip
 
     if base_uri
-      #	url = base_uri + feed_url
       url = URI.parse(base_uri).merge(feed_url).to_s
     end
 
@@ -179,6 +190,6 @@ if __FILE__ == $PROGRAM_NAME
   if ARGV.empty?
     puts "usage: feedbag url"
   else
-    puts Feedbag.find ARGV.first
+    puts AsyncFeedbag.find ARGV.first
   end
 end
