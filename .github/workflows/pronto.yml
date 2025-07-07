@@ -1,0 +1,27 @@
+name: Pronto
+
+on:
+  pull_request:
+    paths:
+      - "**/*.rb"
+      - Rakefile
+      - config.ru
+      - Gemfile
+
+jobs:
+  run:
+    permissions:
+      checks: write
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }} # checkout HEAD commit instead of merge commit
+          fetch-depth: 50
+      - run: git fetch origin main
+      - uses: renatolond/pronto-ruby@v4.4-r
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target: origin/main

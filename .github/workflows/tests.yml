@@ -1,10 +1,11 @@
 name: "Running Tests"
 
 on:
-  - pull_request
+  push:
+    branches: [ main ]
+  pull_request
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   RACK_ENV: test
 
 jobs:
@@ -17,12 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          # runs 'bundle install' and caches installed gems automatically
-          bundler-cache: false
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - run: bundle install
 
