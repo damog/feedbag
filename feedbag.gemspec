@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.summary = %q{RSS/Atom feed auto-discovery tool}
 
   s.add_runtime_dependency 'nokogiri', '~> 1.8', '>= 1.8.2'
+  s.add_runtime_dependency 'addressable', '~> 2.8'
 
   s.add_development_dependency 'shoulda', '~> 3'
   s.add_development_dependency 'mocha', '~> 0.12', '>= 0.12.0'

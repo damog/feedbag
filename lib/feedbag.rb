@@ -7,6 +7,12 @@ require "nokogiri"
 require "open-uri"
 require "net/http"
 
+begin
+  require "addressable/uri"
+rescue LoadError
+  # addressable will be loaded after bundle install
+end
+
 class Feedbag
   VERSION = '1.0.0'
   CONTENT_TYPES = [
@@ -25,7 +31,7 @@ class Feedbag
   end
 
   def self.find(url, options = {})
-    new(options: options).find(url, **options)
+    new(options: options).find(url, options)
   end
 
   def initialize(options: nil)
@@ -34,9 +40,23 @@ class Feedbag
     @options["User-Agent"] ||= "Feedbag/#{VERSION}"
   end
 
+  # Normalize a URL to handle non-ASCII characters (IRIs)
+  # This converts internationalized URLs to valid ASCII URIs
+  def self.normalize_url(url)
+    return url if url.nil? || url.empty?
+    if defined?(Addressable::URI)
+      Addressable::URI.parse(url).normalize.to_s
+    else
+      url
+    end
+  rescue Addressable::URI::InvalidURIError
+    url
+  end
+
   def feed?(url)
-    # use LWR::Simple.normalize some time
-    url_uri = URI.parse(url)
+    # Normalize URL to handle non-ASCII characters
+    normalized_url = Feedbag.normalize_url(url)
+    url_uri = URI.parse(normalized_url)
     url = "#{url_uri.scheme or 'http'}://#{url_uri.host}#{url_uri.path}"
     url << "?#{url_uri.query}" if url_uri.query
 
@@ -52,7 +72,9 @@ class Feedbag
   end
 
   def find(url, options = {})
-    url_uri = URI.parse(url)
+    # Normalize URL to handle non-ASCII characters
+    normalized_url = Feedbag.normalize_url(url)
+    url_uri = URI.parse(normalized_url)
     url = nil
     if url_uri.scheme.nil?
       url = "http://#{url_uri.to_s}"
@@ -160,9 +182,13 @@ class Feedbag
     # puts "#{feed_url} - #{orig_url}"
     url = feed_url.sub(/^feed:/, '').strip
 
+    # Normalize URL to handle non-ASCII characters
+    url = Feedbag.normalize_url(url)
+
     if base_uri
       #	url = base_uri + feed_url
-      url = URI.parse(base_uri).merge(feed_url).to_s
+      normalized_base = Feedbag.normalize_url(base_uri)
+      url = URI.parse(normalized_base).merge(url).to_s
     end
 
     begin
@@ -172,7 +198,8 @@ class Feedbag
       exit 1
     end
     unless uri.absolute?
-      orig = URI.parse(orig_url)
+      normalized_orig = Feedbag.normalize_url(orig_url)
+      orig = URI.parse(normalized_orig)
       url = orig.merge(url).to_s
     end
 
