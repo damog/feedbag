@@ -6,6 +6,7 @@ require "rubygems"
 require "nokogiri"
 require "open-uri"
 require "net/http"
+require "logger"
 
 begin
   require "addressable/uri"
@@ -14,7 +15,32 @@ rescue LoadError
 end
 
 class Feedbag
-  VERSION = '1.0.0'
+  VERSION = '1.0.1'
+
+  # Configurable logger for error output
+  # Default writes to $stderr. Can be set to Rails.logger or any Logger-compatible object.
+  #
+  # @example Silence all output
+  #   Feedbag.logger = Logger.new('/dev/null')
+  #
+  # @example Use Rails logger
+  #   Feedbag.logger = Rails.logger
+  #
+  class << self
+    attr_writer :logger
+
+    def logger
+      @logger ||= default_logger
+    end
+
+    private
+
+    def default_logger
+      logger = Logger.new($stderr)
+      logger.formatter = proc { |severity, _datetime, _progname, msg| "#{msg}\n" }
+      logger
+    end
+  end
   CONTENT_TYPES = [
     'application/x.atom+xml',
     'application/atom+xml',
@@ -98,7 +124,7 @@ class Feedbag
       # TODO: actually find out timeout. use Terminator?
       # $stderr.puts "Feed looked like feed but might not have passed validation or timed out"
     rescue => ex
-      $stderr.puts "#{ex.class} error occurred with: `#{url}': #{ex.message}"
+      Feedbag.logger.error "#{ex.class} error occurred with: `#{url}': #{ex.message}"
     end
 
     begin
@@ -157,13 +183,13 @@ class Feedbag
         end
       end
     rescue Timeout::Error => err
-      $stderr.puts "Timeout error occurred with `#{url}: #{err}'"
+      Feedbag.logger.error "Timeout error occurred with `#{url}: #{err}'"
     rescue OpenURI::HTTPError => the_error
-      $stderr.puts "Error occurred with `#{url}': #{the_error}"
+      Feedbag.logger.error "Error occurred with `#{url}': #{the_error}"
     rescue SocketError => err
-      $stderr.puts "Socket error occurred with: `#{url}': #{err}"
+      Feedbag.logger.error "Socket error occurred with: `#{url}': #{err}"
     rescue => ex
-      $stderr.puts "#{ex.class} error occurred with: `#{url}': #{ex.message}"
+      Feedbag.logger.error "#{ex.class} error occurred with: `#{url}': #{ex.message}"
     ensure
       return @feeds
     end
@@ -193,9 +219,9 @@ class Feedbag
 
     begin
       uri = URI.parse(url)
-    rescue
-      puts "Error with `#{url}'"
-      exit 1
+    rescue => ex
+      Feedbag.logger.error "Error parsing URL `#{url}': #{ex.message}"
+      return
     end
     unless uri.absolute?
       normalized_orig = Feedbag.normalize_url(orig_url)
