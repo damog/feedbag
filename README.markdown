@@ -1,7 +1,7 @@
 Feedbag
 =======
 
-Feedbag is Ruby's favorite auto-discovery tool/library!
+Feedbag is Ruby's favorite feed auto-discovery tool/library!
 
 ### Quick synopsis
 
@@ -10,9 +10,9 @@ Feedbag is Ruby's favorite auto-discovery tool/library!
 => true
 >> Feedbag.find "damog.net/blog"
 => ["http://damog.net/blog/atom.xml"]
->> Feedbag.feed? "perl.org"
+>> Feedbag.feed? "google.com"
 => false
->> Feedbag.feed?("https://m.signalvnoise.com/feed")
+>> Feedbag.feed?("https://daringfireball.net/feeds/main")
 => true
 ```
 
@@ -28,38 +28,62 @@ You can also use the command line tool for quick queries, if you install the gem
 
     » feedbag https://www.ruby-lang.org/en/
     == https://www.ruby-lang.org/en/:
-    - https://www.ruby-lang.org/en/feeds/news.rss
+     - https://www.ruby-lang.org/en/feeds/news.rss
     
 
 ### Usage
-Feedbag will find all RSS feed types.  Here's an example of finding ATOM and JSON Feed
+
+Feedbag will find RSS, Atom, and JSON feed types:
 
 ```ruby
-> Feedbag.find('https://daringfireball.net')
-=> ["https://daringfireball.net/feeds/main", "https://daringfireball.net/feeds/json", "https://daringfireball.net/linked/2021/02/17/bookfeed"]
+>> Feedbag.find('https://daringfireball.net')
+=> ["https://daringfireball.net/feeds/main", "https://daringfireball.net/feeds/json"]
 ```
 
-Feedbag defaults to a User-Agent string of **Feedbag/1.10.2**, however you can override this
+#### Custom User-Agent
+
+Feedbag defaults to a User-Agent string of `Feedbag/VERSION`, but you can override it:
 
 ```ruby
-0> Feedbag.find('https://kottke.org', 'User-Agent' => "My Personal Agent/1.0.1")
-=> ["http://feeds.kottke.org/main", "http://feeds.kottke.org/json"]
-````
-
-The other options passed to find, will be passed to OpenURI. For example:
-
-```ruby
-Feedbag.find("https://kottke.org", 'User-Agent' => "My Personal Agent/1.0.1", open_timeout: 1000)
+>> Feedbag.find('https://kottke.org', 'User-Agent' => "My Personal Agent/1.0.1")
+=> ["http://feeds.kottke.org/main"]
 ```
 
-You can find the other options to OpenURI [here](https://rubyapi.org/o/openuri/openread#method-i-open).
+Other options passed to `find` will be forwarded to OpenURI:
 
+```ruby
+Feedbag.find("https://example.com", 'User-Agent' => "My Agent/1.0", open_timeout: 10)
+```
+
+See [OpenURI options](https://rubyapi.org/o/openuri/openread#method-i-open) for more details.
+
+#### Custom Logger
+
+By default, errors are written to `$stderr`. You can redirect them to a custom logger:
+
+```ruby
+# Use Rails logger
+Feedbag.logger = Rails.logger
+
+# Or silence all output
+Feedbag.logger = Logger.new('/dev/null')
+```
+
+#### Non-ASCII URL Support
+
+Feedbag handles internationalized URLs (IRIs) with non-ASCII characters:
+
+```ruby
+>> Feedbag.find("https://example.com/中文/feed/")
+# Works! URLs are automatically normalized
+```
 
 ### Why should you use it?
 
-- Because it only uses [Nokogiri](http://nokogiri.org/) as dependency.
+- Because it only uses [Nokogiri](http://nokogiri.org/) and [Addressable](https://github.com/sporkmonger/addressable) as dependencies.
 - Because it follows modern feed filename conventions (like those ones used by WordPress blogs, or Blogger, etc).
 - Because it's a single file you can embed easily in your application.
+- Because it handles international URLs with non-ASCII characters.
 - Because it's faster than anything else.
 
 ### Author
