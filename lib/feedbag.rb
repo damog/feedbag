@@ -7,6 +7,7 @@ require "nokogiri"
 require "open-uri"
 require "net/http"
 require "logger"
+require_relative "feedbag/version"
 
 begin
   require "addressable/uri"
@@ -15,7 +16,6 @@ rescue LoadError
 end
 
 class Feedbag
-  VERSION = '1.0.2'
 
   # Configurable logger for error output
   # Default writes to $stderr. Can be set to Rails.logger or any Logger-compatible object.

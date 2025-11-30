@@ -1,9 +1,9 @@
-# -*- encoding: utf-8 -*-
+# frozen_string_literal: true
 
-require_relative "lib/feedbag"
+require_relative "lib/feedbag/version"
 
 Gem::Specification.new do |s|
-  s.name = %q{feedbag}
+  s.name = 'feedbag'
   s.version = Feedbag::VERSION
   s.homepage = "http://github.com/damog/feedbag"
   s.licenses = ["MIT"]
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = %q{damog@damog.net}
 
   s.extra_rdoc_files = ["README.markdown", "COPYING"]
-  s.files = ["lib/feedbag.rb", "benchmark/rfeedfinder_benchmark.rb", "bin/feedbag"]
+  s.files = ["lib/feedbag.rb", "lib/feedbag/version.rb", "benchmark/rfeedfinder_benchmark.rb", "bin/feedbag"]
   # s.has_rdoc = true
   s.rdoc_options = ["--main", "README.markdown"]
   s.summary = %q{RSS/Atom feed auto-discovery tool}
