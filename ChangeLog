@@ -1,4 +1,4 @@
-* 1.0.2 - Sat Nov 30 2025
+* 1.0.2 - Sun Nov 30 2025
   - Fix Ruby 2.6+ keyword argument error with User-Agent option
 
 * 1.0.1 - Sat Nov 29 2025
