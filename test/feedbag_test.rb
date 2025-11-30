@@ -22,14 +22,17 @@ class FeedbagTest < Test::Unit::TestCase
     end
   end
 
-  context "Feedbag find should discover feeds containing atom:link" do
-    setup do
-      @feeds = ['http://jenniferlynch.wordpress.com/feed', 'http://lurenbijdeburen.wordpress.com/feed']
-    end
-    should "find atom feed" do
-      @feeds.each do |url|
-        assert_equal [url], Feedbag.find(url)
-      end
+  context "Feedbag find should discover feeds from direct feed URLs" do
+    should "recognize a direct feed URL" do
+      src = 'test/testcases/json1.html'
+      feed_url = 'http://example.com/feed'
+      stub_request(:any, "example.com/feed").to_return(
+        body: '',
+        status: 200,
+        headers: {"Content-Type" => 'application/rss+xml'}
+      )
+      result = Feedbag.find(feed_url)
+      assert_equal [feed_url], result
     end
   end
 
