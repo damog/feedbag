@@ -1,3 +1,6 @@
+* 1.0.2 - Sat Nov 30 2025
+  - Fix Ruby 2.6+ keyword argument error with User-Agent option
+
 * 1.0.1 - Sat Nov 29 2025
   - Add support for non-ASCII URLs / IRIs (fixes #29)
   - Add configurable logger for error output (fixes #33)

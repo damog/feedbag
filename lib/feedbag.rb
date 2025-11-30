@@ -15,7 +15,7 @@ rescue LoadError
 end
 
 class Feedbag
-  VERSION = '1.0.1'
+  VERSION = '1.0.2'
 
   # Configurable logger for error output
   # Default writes to $stderr. Can be set to Rails.logger or any Logger-compatible object.
@@ -128,7 +128,7 @@ class Feedbag
     end
 
     begin
-      html = URI.open(url, **@options) do |f|
+      html = URI.open(url, @options) do |f|
         content_type = f.content_type.downcase
         if content_type == "application/octet-stream" # open failed
           content_type = f.meta["content-type"].gsub(/;.*$/, '')
