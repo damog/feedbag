@@ -1,18 +1,11 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 # Test for configurable logger (Issue #33)
 
-require 'rubygems'
-require 'test/unit'
+require_relative 'test_helper'
 require 'stringio'
 require 'logger'
-
-# Add user gems to load path for addressable
-gem_home = File.expand_path('~/.gem/ruby/2.6.0')
-$LOAD_PATH.unshift(File.join(gem_home, 'gems', 'addressable-2.8.8', 'lib'))
-$LOAD_PATH.unshift(File.join(gem_home, 'gems', 'public_suffix-5.1.1', 'lib'))
-
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'feedbag'
 
 class LoggerTest < Test::Unit::TestCase
 
@@ -132,6 +125,4 @@ class LoggerTest < Test::Unit::TestCase
       Feedbag.logger.debug "test"
     end
   end
-
 end
-

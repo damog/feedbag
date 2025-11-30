@@ -1,16 +1,9 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 # Test for non-ASCII URL support (Issue #29)
 
-require 'rubygems'
-require 'test/unit'
-
-# Add user gems to load path for addressable
-gem_home = File.expand_path('~/.gem/ruby/2.6.0')
-$LOAD_PATH.unshift(File.join(gem_home, 'gems', 'addressable-2.8.8', 'lib'))
-$LOAD_PATH.unshift(File.join(gem_home, 'gems', 'public_suffix-5.1.1', 'lib'))
-
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'feedbag'
+require_relative 'test_helper'
 
 class NormalizeUrlTest < Test::Unit::TestCase
   
@@ -148,4 +141,3 @@ class NormalizeUrlTest < Test::Unit::TestCase
     end
   end
 end
-
