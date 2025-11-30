@@ -5,6 +5,7 @@ Feedbag
 [![Gem Version](https://badge.fury.io/rb/feedbag.svg)](https://badge.fury.io/rb/feedbag)
 [![Downloads](https://img.shields.io/gem/dt/feedbag.svg)](https://rubygems.org/gems/feedbag)
 [![License](https://img.shields.io/github/license/damog/feedbag.svg)](https://github.com/damog/feedbag/blob/master/COPYING)
+[![CodeFactor](https://www.codefactor.io/repository/github/damog/feedbag/badge)](https://www.codefactor.io/repository/github/damog/feedbag)
 
 Feedbag is Ruby's favorite feed auto-discovery tool/library!
 
